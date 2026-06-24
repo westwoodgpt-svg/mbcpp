@@ -1,0 +1,7 @@
+/* Мой бизнес — Design System entry point.
+   Consumers link this single file. It only @imports token + font sources. */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/base.css";

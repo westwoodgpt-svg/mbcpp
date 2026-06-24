@@ -1,0 +1,61 @@
+/* Мой бизнес — Color tokens
+   Derived from the official logo: coffee-brown wordmark, tan rocket, coral flame. */
+:root {
+  /* ---- Brand core ---- */
+  --brown-900: #3a221d;
+  --brown-800: #4d2f2a;   /* primary wordmark brown (logo) */
+  --brown-700: #5e3a32;
+  --brown-600: #6f463b;
+  --brown-500: #8a5d4f;
+
+  --tan-700: #b07d4e;
+  --tan-600: #c08b59;
+  --tan-500: #cf9e70;     /* signature tan / rocket body (logo) */
+  --tan-400: #dcb288;
+  --tan-300: #e8cba8;
+  --tan-200: #f2e0cb;
+  --tan-100: #f8eede;     /* warm cream surface */
+
+  --coral-700: #c23f2c;
+  --coral-600: #dd4b33;   /* accent flame (logo) */
+  --coral-500: #e05040;
+  --coral-400: #ea7361;
+
+  /* ---- Neutrals (warm-tinted greys) ---- */
+  --ink-900: #2a201d;
+  --ink-700: #4f433e;
+  --ink-500: #7a6d66;
+  --ink-300: #b3a9a2;
+  --ink-200: #d9d1cb;
+  --ink-100: #ece7e2;
+  --paper: #ffffff;
+  --bg: #faf6f1;          /* page background, faint warm */
+
+  /* ---- Semantic ---- */
+  --success: #2e8b57;
+  --warning: #e0992f;
+  --danger: var(--coral-600);
+  --info: #3a72b0;
+
+  /* ---- Aliases ---- */
+  --color-primary: var(--brown-800);
+  --color-primary-hover: var(--brown-900);
+  --color-accent: var(--coral-600);
+  --color-accent-hover: var(--coral-700);
+  --color-secondary: var(--tan-500);
+
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-on-dark: #fbf6f0;
+  --text-on-accent: #ffffff;
+
+  --surface-page: var(--bg);
+  --surface-card: var(--paper);
+  --surface-warm: var(--tan-100);
+  --surface-brand: var(--brown-800);
+
+  --border-subtle: var(--ink-200);
+  --border-strong: var(--ink-300);
+  --focus-ring: var(--coral-500);
+}

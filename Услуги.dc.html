@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/styles.css">
+<script src="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  html,body{margin:0;background:var(--bg);color:var(--text-body);font-family:var(--font-sans,'Manrope',sans-serif)}
+  *{box-sizing:border-box}
+  a{color:inherit;text-decoration:none}
+  .mb-link{transition:color .15s}
+  .mb-link:hover{color:var(--coral-600)}
+  .mb-card{transition:transform .2s ease,box-shadow .2s ease}
+  .mb-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px -18px rgba(58,34,29,.35)}
+  .mb-btn{transition:background .15s,transform .1s,box-shadow .15s}
+  .mb-btn:active{transform:scale(.98)}
+  @keyframes mbrise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes mbfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes mbpulse{0%,100%{box-shadow:0 12px 30px -10px rgba(221,75,51,.7)}50%{box-shadow:0 12px 40px -6px rgba(221,75,51,.95)}}
+</style>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#3a221d"/><g transform="translate(50 50)"><path d="M-10 16 C-14 4 -8 -12 0 -18 C8 -12 14 4 10 16 Z" fill="#cf9e70"/><circle cy="-4" r="4" fill="#faf6f1"/><path d="M-6 16 L0 26 L6 16 Z" fill="#dd4b33"/></g></svg>
+</template>
+</helmet>
+
+<div style="min-height:100vh;overflow-x:hidden">
+
+  <!-- Top bar -->
+  <div style="background:var(--brown-900);color:rgba(251,246,240,.82);font-size:13px">
+    <div style="max-width:1240px;margin:0 auto;padding:9px 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <span style="color:var(--tan-400)">Центр поддержки предпринимательства Калининградской области</span>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+        <a class="mb-link" href="tel:+74012994588" style="display:flex;align-items:center;gap:6px"><i data-lucide="phone" style="width:14px;height:14px"></i>+7 (4012) 994&nbsp;588</a>
+        <a class="mb-link" href="mailto:info@mbkaliningrad.ru" style="display:flex;align-items:center;gap:6px"><i data-lucide="mail" style="width:14px;height:14px"></i>info@mbkaliningrad.ru</a>
+        <a class="mb-link" href="#" style="display:flex;align-items:center;gap:6px;color:var(--tan-400)"><i data-lucide="eye" style="width:14px;height:14px"></i>Версия для слабовидящих</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header style="position:sticky;top:0;z-index:40;background:rgba(250,246,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:28px;height:78px">
+      <a href="Лендинг Мой бизнес.dc.html" style="display:flex;align-items:center"><img src="assets/logo-full.png" alt="Мой бизнес — Калининград" style="height:46px"></a>
+      <nav style="display:flex;gap:24px;margin-left:auto">
+        <a class="mb-link" href="Лендинг Мой бизнес.dc.html#about" style="font-weight:600;font-size:15px">О Центре</a>
+        <a class="mb-link" href="Услуги.dc.html" style="font-weight:700;font-size:15px;color:var(--coral-600)">Услуги</a>
+        <a class="mb-link" href="Лендинг Мой бизнес.dc.html#events" style="font-weight:600;font-size:15px">Мероприятия</a>
+        <a class="mb-link" href="Лендинг Мой бизнес.dc.html#news" style="font-weight:600;font-size:15px">Новости</a>
+        <a class="mb-link" href="Лендинг Мой бизнес.dc.html#stories" style="font-weight:600;font-size:15px">Истории успеха</a>
+        <a class="mb-link" href="Лендинг Мой бизнес.dc.html#contacts" style="font-weight:600;font-size:15px">Контакты</a>
+      </nav>
+      <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:13px;box-shadow:0 8px 20px -8px rgba(221,75,51,.6)" style-hover="background:var(--coral-700)">Получить поддержку</button>
+    </div>
+  </header>
+
+  <!-- HEADING -->
+  <section style="background:var(--brown-800);color:#fff;position:relative;overflow:hidden">
+    <div style="position:absolute;right:-120px;top:-160px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(207,158,112,.4),transparent 64%);pointer-events:none"></div>
+    <div style="position:absolute;right:9%;top:54%;transform:translateY(-50%);font-size:200px;opacity:.1;color:var(--tan-400);animation:mbfloat 6s ease-in-out infinite;pointer-events:none"><i data-lucide="rocket" style="width:200px;height:200px"></i></div>
+    <div style="max-width:1240px;margin:0 auto;padding:30px 32px 56px;position:relative;z-index:1">
+      <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(251,246,240,.7);margin-bottom:26px">
+        <a class="mb-link" href="Лендинг Мой бизнес.dc.html" style="color:rgba(251,246,240,.7)">Главная</a>
+        <i data-lucide="chevron-right" style="width:14px;height:14px"></i>
+        <span style="color:var(--tan-400)">Услуги</span>
+      </div>
+      <span style="display:inline-flex;align-items:center;gap:8px;background:var(--coral-600);color:#fff;font-size:13px;font-weight:700;padding:7px 15px;border-radius:999px;margin-bottom:18px;animation:mbrise .5s ease both"><i data-lucide="sparkles" style="width:15px;height:15px"></i>161 167 услуг оказано предпринимателям</span>
+      <h1 style="margin:0;max-width:760px;font-size:52px;font-weight:800;line-height:1.06;letter-spacing:-.02em;animation:mbrise .55s ease .08s both">Полный спектр услуг для развития вашего бизнеса</h1>
+      <p style="margin:18px 0 28px;max-width:600px;font-size:19px;line-height:1.55;color:rgba(251,246,240,.86);animation:mbrise .6s ease .18s both">От оформления документов до выхода на зарубежные рынки — помогаем бизнесу на всех этапах. Все услуги центра бесплатны.</p>
+      <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:17px;padding:15px 32px;border-radius:14px;box-shadow:0 12px 28px -10px rgba(221,75,51,.7);animation:mbrise .6s ease .28s both" style-hover="background:var(--coral-700)">Получить поддержку</button>
+    </div>
+  </section>
+
+  <!-- CONTENT: filter + list -->
+  <section style="max-width:1240px;margin:0 auto;padding:48px 32px 80px;display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start">
+
+    <!-- Sidebar filter -->
+    <aside style="position:sticky;top:96px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:20px;padding:26px 24px">
+      <h3 style="margin:0 0 4px;font-size:20px;font-weight:800;color:var(--text-strong)">Найти услугу</h3>
+      <p style="margin:0 0 22px;font-size:13px;color:var(--text-muted)">Отфильтруйте по аудитории и категории</p>
+
+      <div style="font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-600);margin-bottom:12px">Кому</div>
+      <div style="display:flex;flex-direction:column;margin-bottom:24px">
+        <sc-for list="{{ audienceRadios }}" as="a" hint-placeholder-count="6">
+          <button onClick="{{ a.onClick }}" class="mb-btn" style="display:flex;align-items:center;gap:11px;width:100%;text-align:left;cursor:pointer;background:transparent;border:none;padding:8px 0;font-family:inherit">
+            <span style="flex:none;width:20px;height:20px;border-radius:50%;border:2px solid {{ a.ring }};display:flex;align-items:center;justify-content:center"><span style="width:10px;height:10px;border-radius:50%;background:{{ a.dot }}"></span></span>
+            <span style="font-size:14px;font-weight:{{ a.weight }};color:{{ a.color }};line-height:1.3">{{ a.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="height:1px;background:var(--border-subtle);margin-bottom:20px"></div>
+
+      <div style="font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-600);margin-bottom:12px">Категория</div>
+      <div style="display:flex;flex-direction:column;margin-bottom:24px">
+        <sc-for list="{{ categoryChecks }}" as="c" hint-placeholder-count="6">
+          <button onClick="{{ c.onClick }}" class="mb-btn" style="display:flex;align-items:center;gap:11px;width:100%;text-align:left;cursor:pointer;background:transparent;border:none;padding:8px 0;font-family:inherit">
+            <span style="flex:none;width:20px;height:20px;border-radius:6px;border:2px solid {{ c.ring }};background:{{ c.fill }};display:flex;align-items:center;justify-content:center;color:#fff"><i data-lucide="check" style="width:13px;height:13px;opacity:{{ c.checkOpacity }}"></i></span>
+            <span style="font-size:14px;font-weight:{{ c.weight }};color:{{ c.color }};line-height:1.3">{{ c.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <button onClick="{{ resetFilters }}" class="mb-btn" style="width:100%;cursor:pointer;border:1px solid var(--border-strong);background:transparent;color:var(--brown-800);font-weight:700;font-size:14px;padding:11px;border-radius:12px" style-hover="background:var(--tan-100)">Сбросить фильтры</button>
+    </aside>
+
+    <!-- Results -->
+    <div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:8px;flex-wrap:wrap">
+        <div style="font-size:15px;color:var(--text-muted)">Найдено услуг: <strong style="color:var(--text-strong)">{{ totalCount }}</strong></div>
+        <div style="font-size:14px;color:var(--text-muted)">{{ audienceLabel }}</div>
+      </div>
+      <div style="height:1px;background:var(--border-subtle);margin-bottom:30px"></div>
+
+      <sc-if value="{{ vetBanner }}" hint-placeholder-val="{{ false }}">
+        <div style="background:linear-gradient(120deg,var(--brown-800),var(--brown-900));color:#fff;border-radius:20px;padding:28px 30px;margin-bottom:34px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(207,158,112,.4),transparent 65%);pointer-events:none"></div>
+          <div style="width:58px;height:58px;border-radius:16px;background:var(--coral-600);display:flex;align-items:center;justify-content:center;flex:none;position:relative;z-index:1"><i data-lucide="medal" style="width:30px;height:30px;color:#fff"></i></div>
+          <div style="flex:1;min-width:240px;position:relative;z-index:1">
+            <div style="font-size:21px;font-weight:800;margin-bottom:5px">Ветеранам СВО и их семьям</div>
+            <div style="font-size:15px;color:rgba(251,246,240,.85);line-height:1.5">Хотите начать своё дело? Оставьте заявку — поможем с регистрацией, обучением и финансированием на старте.</div>
+          </div>
+          <button class="mb-btn" onClick="{{ openModal }}" style="position:relative;z-index:1;border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:13px" style-hover="background:var(--coral-700)">Оставить заявку</button>
+        </div>
+      </sc-if>
+
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+        <div style="margin-bottom:42px">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+            <div style="width:46px;height:46px;border-radius:13px;background:var(--tan-100);color:var(--coral-600);display:flex;align-items:center;justify-content:center;flex:none"><i data-lucide="{{ g.icon }}" style="width:24px;height:24px"></i></div>
+            <h2 style="margin:0;font-size:26px;font-weight:800;color:var(--text-strong)">{{ g.title }}</h2>
+            <span style="font-size:14px;color:var(--text-muted)">{{ g.countLabel }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
+            <sc-for list="{{ g.items }}" as="s" hint-placeholder-count="2">
+              <a href="#" onClick="{{ s.onClick }}" class="mb-card" style="display:flex;flex-direction:column;gap:13px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;padding:24px;position:relative">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                  <span style="font-size:12px;font-weight:700;color:var(--brown-700);background:var(--tan-100);padding:4px 11px;border-radius:999px">{{ s.forma }}</span>
+                  <span style="color:var(--text-muted)"><i data-lucide="arrow-up-right" style="width:18px;height:18px"></i></span>
+                </div>
+                <div style="font-weight:700;font-size:18px;color:var(--text-strong);line-height:1.3">{{ s.title }}</div>
+                <div style="font-size:14px;color:var(--text-muted);line-height:1.5;flex:1">{{ s.desc }}</div>
+                <span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:{{ s.statusColor }};background:{{ s.statusBg }};padding:6px 12px;border-radius:999px;align-self:flex-start"><span style="width:7px;height:7px;border-radius:50%;background:{{ s.statusColor }}"></span>{{ s.statusLabel }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+
+      <sc-if value="{{ showEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="border:1px dashed var(--border-strong);border-radius:20px;padding:48px 32px;text-align:center;background:var(--surface-card)">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--tan-100);color:var(--coral-600);display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><i data-lucide="search-x" style="width:28px;height:28px"></i></div>
+          <div style="font-size:19px;font-weight:700;color:var(--text-strong);margin-bottom:8px">По выбранным фильтрам услуг не найдено</div>
+          <p style="margin:0 0 22px;font-size:15px;color:var(--text-muted);max-width:420px;margin-left:auto;margin-right:auto">Сбросьте фильтры или оставьте заявку — мы подберём поддержку индивидуально.</p>
+          <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:13px 28px;border-radius:13px" style-hover="background:var(--coral-700)">Оставить заявку</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="max-width:1240px;margin:0 auto;padding:0 32px 80px">
+    <div style="background:var(--tan-100);border:1px solid var(--border-subtle);border-radius:26px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <div style="max-width:620px">
+        <h2 style="margin:0 0 10px;color:var(--text-strong);font-size:30px;font-weight:800;letter-spacing:-.01em">Не нашли нужную услугу?</h2>
+        <p style="margin:0;color:var(--text-muted);font-size:18px;line-height:1.55">Оставьте заявку — специалист центра подберёт подходящие меры поддержки бесплатно.</p>
+      </div>
+      <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:17px;padding:16px 32px;border-radius:14px;box-shadow:0 12px 28px -10px rgba(221,75,51,.7)" style-hover="background:var(--coral-700)">Получить консультацию</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--brown-900);color:rgba(251,246,240,.72)">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 32px 36px;display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:44px">
+      <div>
+        <img src="assets/logo-full.png" alt="Мой бизнес" style="height:46px;margin-bottom:18px;filter:brightness(0) invert(1)">
+        <p style="margin:0 0 20px;font-size:14px;line-height:1.6;max-width:340px">Центр поддержки предпринимательства Калининградской области. Все услуги центра бесплатны.</p>
+        <div style="display:flex;gap:12px">
+          <sc-for list="{{ socials }}" as="so" hint-placeholder-count="4">
+            <a class="mb-link" href="#" style="width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center"><i data-lucide="{{ so }}" style="width:18px;height:18px"></i></a>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--tan-400);font-weight:700;font-size:14px;margin-bottom:14px">Разделы</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:14px">
+          <a class="mb-link" href="Лендинг Мой бизнес.dc.html#about">О Центре</a>
+          <a class="mb-link" href="Услуги.dc.html">Услуги</a>
+          <a class="mb-link" href="Лендинг Мой бизнес.dc.html#events">Мероприятия</a>
+          <a class="mb-link" href="Лендинг Мой бизнес.dc.html#news">Новости</a>
+          <a class="mb-link" href="Лендинг Мой бизнес.dc.html#stories">Истории успеха</a>
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--tan-400);font-weight:700;font-size:14px;margin-bottom:14px">Реквизиты и контакты</div>
+        <div style="font-size:14px;line-height:1.7">
+          236022, г. Калининград, ул. Уральская, 18, каб. 408–422<br>
+          <a class="mb-link" href="tel:+74012994588">+7 (4012) 994&nbsp;588</a> · <a class="mb-link" href="tel:+74012994904">994-904</a><br>
+          <a class="mb-link" href="mailto:info@mbkaliningrad.ru">info@mbkaliningrad.ru</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.12);padding:18px 0;text-align:center;font-size:13px;color:rgba(251,246,240,.5)">© 2013–2026 Фонд поддержки предпринимательства · Национальный проект «МСП»</div>
+  </footer>
+
+  <!-- Sticky consult button -->
+  <button class="mb-btn" onClick="{{ openModal }}" style="position:fixed;right:26px;bottom:26px;z-index:45;border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:15px 24px;border-radius:999px;display:flex;align-items:center;gap:9px;animation:mbpulse 2.4s ease-in-out infinite" style-hover="background:var(--coral-700)"><i data-lucide="message-circle" style="width:20px;height:20px"></i>Записаться на консультацию</button>
+
+  <!-- MODAL -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModal }}" style="position:fixed;inset:0;background:rgba(42,32,29,.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:20px">
+      <div onClick="{{ stop }}" style="background:var(--surface-card);border-radius:20px;padding:32px;width:480px;max-width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px -30px rgba(0,0,0,.5)">
+        <sc-if value="{{ modalSent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:14px 0">
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(46,139,87,.15);color:var(--success);display:flex;align-items:center;justify-content:center;margin:0 auto 18px"><i data-lucide="check" style="width:32px;height:32px"></i></div>
+            <h3 style="margin:0 0 10px;color:var(--text-strong);font-size:22px">Спасибо за обращение</h3>
+            <p style="margin:0 0 22px;color:var(--text-muted);font-size:16px;line-height:1.5">Наши специалисты свяжутся с вами в течение одного рабочего дня.</p>
+            <button class="mb-btn" onClick="{{ closeModal }}" style="border:none;cursor:pointer;background:var(--brown-800);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:13px">Закрыть</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ modalForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+              <div>
+                <h3 style="margin:0 0 4px;color:var(--text-strong);font-size:23px">Заявка на консультацию</h3>
+                <p style="margin:0;color:var(--text-muted);font-size:14px">Оставьте свой вопрос, и мы обязательно свяжемся с вами.</p>
+              </div>
+              <button onClick="{{ closeModal }}" style="flex:none;cursor:pointer;border:none;background:var(--tan-100);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--brown-800)"><i data-lucide="x" style="width:18px;height:18px"></i></button>
+            </div>
+            <input placeholder="Фамилия, имя, отчество" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
+            <input placeholder="Телефон" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
+            <input placeholder="Электронная почта" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
+            <textarea placeholder="Кратко опишите вопрос (необязательно)" rows="3" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg);resize:vertical"></textarea>
+            <button class="mb-btn" onClick="{{ submitModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:16px;padding:14px;border-radius:13px;width:100%" style-hover="background:var(--coral-700)">Отправить заявку</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { audience: "all", cats: [], modalOpen: false, sent: false };
+
+  componentDidMount() {
+    try {
+      const p = new URLSearchParams(location.search);
+      const a = p.get("audience");
+      if (a && ["start", "self", "business", "export", "veterans"].includes(a)) {
+        this.setState({ audience: a });
+      }
+    } catch (e) {}
+    this._draw();
+  }
+
+  componentDidUpdate() { this._draw(); }
+  componentWillUnmount() { clearTimeout(this._t); }
+
+  _draw() {
+    clearTimeout(this._t);
+    this._t = setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 60);
+  }
+
+  renderVals() {
+    const CATS = [
+      { key: "finance", title: "Финансы", icon: "banknote" },
+      { key: "consult", title: "Консультации", icon: "scale" },
+      { key: "education", title: "Обучение", icon: "graduation-cap" },
+      { key: "promo", title: "Продвижение", icon: "megaphone" },
+      { key: "property", title: "Имущество", icon: "building-2" },
+      { key: "export", title: "Экспорт", icon: "globe" },
+    ];
+
+    const AUD = [
+      { key: "all", label: "Все" },
+      { key: "start", label: "Желающим открыть бизнес" },
+      { key: "self", label: "Самозанятым" },
+      { key: "business", label: "ИП, юрлицам, работодателям" },
+      { key: "export", label: "Экспортёрам" },
+      { key: "veterans", label: "Ветеранам СВО и их семьям" },
+    ];
+
+    const S = [
+      { cat: "finance", title: "Микрокредитование", desc: "Льготные займы до 5 млн ₽ на развитие и пополнение оборотных средств по сниженной ставке.", forma: "ИП, ЮЛ", aud: ["business", "start", "veterans"], status: "open" },
+      { cat: "finance", title: "Поручительство по кредитам", desc: "Гарантии Гарантийного фонда при нехватке залога для кредита в банке-партнёре.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
+      { cat: "finance", title: "Лизинговая поддержка", desc: "Льготный лизинг оборудования для производственных и сельхозпредприятий региона.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
+
+      { cat: "consult", title: "Регистрация ИП или ООО", desc: "Бесплатное сопровождение регистрации бизнеса и открытия расчётного счёта.", forma: "Физлицам", aud: ["start", "self", "veterans"], status: "open" },
+      { cat: "consult", title: "Юридические консультации", desc: "Помощь юриста по договорам, регистрации, спорам и проверкам.", forma: "ИП, ЮЛ, самозанятым", aud: ["business", "self", "start", "veterans"], status: "open" },
+      { cat: "consult", title: "Бухгалтерское сопровождение", desc: "Консультации по учёту, налогам и отчётности для бизнеса.", forma: "ИП, ЮЛ, самозанятым", aud: ["business", "self"], status: "open" },
+      { cat: "consult", title: "Подбор системы налогообложения", desc: "Расчёт налоговой нагрузки и рекомендации с учётом изменений 2026 года.", forma: "ИП, ЮЛ", aud: ["business", "start"], status: "closed" },
+
+      { cat: "education", title: "Обучающие программы и тренинги", desc: "Семинары, тренинги и курсы по развитию и управлению бизнесом.", forma: "Всем", aud: ["start", "self", "business", "veterans"], status: "open" },
+      { cat: "education", title: "Азбука предпринимателя", desc: "Базовый курс для тех, кто только планирует открыть своё дело.", forma: "Физлицам, самозанятым", aud: ["start", "self", "veterans"], status: "open" },
+      { cat: "education", title: "Школа социального предпринимательства", desc: "Программа для социальных проектов и НКО Калининградской области.", forma: "ИП, ЮЛ", aud: ["business", "start"], status: "open" },
+
+      { cat: "promo", title: "Размещение на маркетплейсах", desc: "Сопровождение выхода на Wildberries, OZON и Яндекс Маркет.", forma: "ИП, самозанятым", aud: ["business", "self"], status: "open" },
+      { cat: "promo", title: "Регистрация товарного знака", desc: "Сопровождение регистрации в Роспатенте: от проверки обозначения до подачи документов.", forma: "ИП, ЮЛ", aud: ["business"], status: "holded" },
+      { cat: "promo", title: "Создание сайта", desc: "Дизайн, адаптивная вёрстка, сбор заявок и базовая SEO-оптимизация.", forma: "ИП, ЮЛ", aud: ["business", "self"], status: "open" },
+      { cat: "promo", title: "Изготовление брендированной продукции", desc: "Производство печатной и сувенирной продукции, POS-материалов.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
+
+      { cat: "property", title: "Аренда помещений и коворкинга", desc: "Рабочие места и переговорные в центре «Мой бизнес» на льготных условиях.", forma: "ИП, ЮЛ", aud: ["business", "start"], status: "open" },
+      { cat: "property", title: "Льготная аренда оборудования", desc: "Доступ к оборудованию центра молодёжного инновационного творчества.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
+
+      { cat: "export", title: "Поддержка экспорта", desc: "Сопровождение выхода продукции на зарубежные рынки и поиск партнёров.", forma: "ИП, ЮЛ", aud: ["export", "business"], status: "open" },
+      { cat: "export", title: "Поиск зарубежных партнёров", desc: "Аналитика рынков, подбор контрагентов и организация переговоров.", forma: "ИП, ЮЛ", aud: ["export"], status: "open" },
+      { cat: "export", title: "Участие в международных бизнес-миссиях", desc: "Делегации и выставки за рубежом. Перечень мероприятий на 2026 год.", forma: "ИП, ЮЛ", aud: ["export"], status: "closed" },
+    ];
+
+    const STATUS = {
+      open: { label: "Идёт приём заявок", color: "var(--success)", bg: "rgba(46,139,87,.12)" },
+      closed: { label: "Закрыли приём заявок", color: "var(--text-muted)", bg: "var(--tan-100)" },
+      holded: { label: "Приостановили приём", color: "#b5651d", bg: "rgba(207,158,112,.22)" },
+    };
+
+    const aud = this.state.audience;
+    const cats = this.state.cats;
+    const openModal = () => this.setState({ modalOpen: true, sent: false });
+
+    const visible = S.filter(s =>
+      (aud === "all" || s.aud.includes(aud)) &&
+      (cats.length === 0 || cats.includes(s.cat))
+    );
+
+    const groups = CATS
+      .map(c => ({
+        ...c,
+        items: visible.filter(s => s.cat === c.key).map(s => {
+          const st = STATUS[s.status];
+          return { ...s, statusLabel: st.label, statusColor: st.color, statusBg: st.bg, onClick: (e) => { e.preventDefault(); openModal(); } };
+        }),
+      }))
+      .filter(c => c.items.length > 0)
+      .map(c => ({ ...c, countLabel: c.items.length + (c.items.length === 1 ? " услуга" : (c.items.length < 5 ? " услуги" : " услуг")) }));
+
+    const audLabel = AUD.find(a => a.key === aud);
+
+    return {
+      audienceRadios: AUD.map(a => ({
+        label: a.label,
+        onClick: () => this.setState({ audience: a.key }),
+        ring: aud === a.key ? "var(--coral-600)" : "var(--border-strong)",
+        dot: aud === a.key ? "var(--coral-600)" : "transparent",
+        color: aud === a.key ? "var(--text-strong)" : "var(--text-body)",
+        weight: aud === a.key ? "700" : "500",
+      })),
+      categoryChecks: CATS.map(c => {
+        const on = cats.includes(c.key);
+        return {
+          label: c.title,
+          onClick: () => this.setState(s => ({ cats: s.cats.includes(c.key) ? s.cats.filter(x => x !== c.key) : [...s.cats, c.key] })),
+          ring: on ? "var(--coral-600)" : "var(--border-strong)",
+          fill: on ? "var(--coral-600)" : "transparent",
+          checkOpacity: on ? "1" : "0",
+          color: on ? "var(--text-strong)" : "var(--text-body)",
+          weight: on ? "700" : "500",
+        };
+      }),
+      resetFilters: () => this.setState({ audience: "all", cats: [] }),
+      groups,
+      totalCount: visible.length,
+      showEmpty: visible.length === 0,
+      audienceLabel: aud === "all" ? "Все аудитории" : (audLabel ? audLabel.label : ""),
+      vetBanner: aud === "veterans",
+
+      modalOpen: this.state.modalOpen,
+      modalForm: this.state.modalOpen && !this.state.sent,
+      modalSent: this.state.modalOpen && this.state.sent,
+      openModal,
+      closeModal: () => this.setState({ modalOpen: false, sent: false }),
+      submitModal: () => this.setState({ sent: true }),
+      stop: (e) => e.stopPropagation(),
+
+      socials: ["send", "play-circle", "rss", "users"],
+    };
+  }
+}
+</script>
+</body>
+</html>

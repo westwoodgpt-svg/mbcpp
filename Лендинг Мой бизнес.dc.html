@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#4d2f2a"/><g transform="translate(100 100)"><path d="M0-44c14 10 22 26 22 44 0 8-3 16-8 22h-28c-5-6-8-14-8-22 0-18 8-34 22-44z" fill="#cf9e70"/><circle cy="-8" r="8" fill="#4d2f2a"/><path d="M-14 28c-6 6-8 16-7 24 8-1 18-3 24-9z M14 28c6 6 8 16 7 24-8-1-18-3-24-9z" fill="#dd4b33"/></g></svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/colors.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/typography.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/tokens/base.css">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/styles.css">
+<script src="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  html,body{margin:0;background:var(--bg);color:var(--text-body);font-family:var(--font-sans,'Manrope',sans-serif)}
+  *{box-sizing:border-box}
+  a{color:inherit;text-decoration:none}
+  .mb-link{transition:color .15s}
+  .mb-link:hover{color:var(--coral-600)}
+  .mb-card{transition:transform .2s ease,box-shadow .2s ease}
+  .mb-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px -18px rgba(58,34,29,.35)}
+  .mb-btn{transition:background .15s,transform .1s,box-shadow .15s}
+  .mb-btn:active{transform:scale(.98)}
+  .mb-scroll{scrollbar-width:none}
+  .mb-scroll::-webkit-scrollbar{display:none}
+  @keyframes mbrise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes mbword{0%{opacity:0;transform:translateY(40px) rotate(2deg)}100%{opacity:1;transform:none}}
+  @keyframes mbfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes mbpulse{0%,100%{box-shadow:0 12px 30px -10px rgba(221,75,51,.7)}50%{box-shadow:0 12px 40px -6px rgba(221,75,51,.95)}}
+  .mb-hword{display:inline-block;opacity:0;animation:mbword .7s cubic-bezier(.2,.7,.2,1) both}
+</style>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#3a221d"/><g transform="translate(50 50)"><path d="M-10 16 C-14 4 -8 -12 0 -18 C8 -12 14 4 10 16 Z" fill="#cf9e70"/><circle cy="-4" r="4" fill="#faf6f1"/><path d="M-6 16 L0 26 L6 16 Z" fill="#dd4b33"/></g></svg>
+</template>
+</helmet>
+
+<div style="min-height:100vh;overflow-x:hidden">
+
+  <!-- Top bar -->
+  <div style="background:var(--brown-900);color:rgba(251,246,240,.82);font-size:13px">
+    <div style="max-width:1240px;margin:0 auto;padding:9px 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <span style="color:var(--tan-400)">Центр поддержки предпринимательства Калининградской области</span>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+        <a class="mb-link" href="tel:+74012994588" style="display:flex;align-items:center;gap:6px"><i data-lucide="phone" style="width:14px;height:14px"></i>+7 (4012) 994&nbsp;588</a>
+        <a class="mb-link" href="mailto:info@mbkaliningrad.ru" style="display:flex;align-items:center;gap:6px"><i data-lucide="mail" style="width:14px;height:14px"></i>info@mbkaliningrad.ru</a>
+        <a class="mb-link" href="#" style="display:flex;align-items:center;gap:6px;color:var(--tan-400)"><i data-lucide="eye" style="width:14px;height:14px"></i>Версия для слабовидящих</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header style="position:sticky;top:0;z-index:40;background:rgba(250,246,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:28px;height:78px">
+      <a href="#top" style="display:flex;align-items:center"><img src="assets/logo-full.png" alt="Мой бизнес — Калининград" style="height:46px"></a>
+      <nav style="display:flex;gap:24px;margin-left:auto">
+        <a class="mb-link" href="#about" style="font-weight:600;font-size:15px">О Центре</a>
+        <a class="mb-link" href="#services" style="font-weight:600;font-size:15px">Услуги</a>
+        <a class="mb-link" href="#events" style="font-weight:600;font-size:15px">Мероприятия</a>
+        <a class="mb-link" href="#news" style="font-weight:600;font-size:15px">Новости</a>
+        <a class="mb-link" href="#stories" style="font-weight:600;font-size:15px">Истории успеха</a>
+        <a class="mb-link" href="#contacts" style="font-weight:600;font-size:15px">Контакты</a>
+      </nav>
+      <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:13px;box-shadow:0 8px 20px -8px rgba(221,75,51,.6)" style-hover="background:var(--coral-700)">Получить поддержку</button>
+    </div>
+  </header>
+
+  <!-- HERO — full-bleed banner with animated heading -->
+  <section id="top" style="position:relative;background:var(--brown-800);color:#fff;overflow:hidden;display:flex;align-items:center">
+    <div style="position:absolute;right:-160px;top:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(207,158,112,.42),transparent 64%);pointer-events:none"></div>
+    <div style="position:absolute;left:-120px;bottom:-200px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(221,75,51,.24),transparent 66%);pointer-events:none"></div>
+    <div style="position:absolute;right:7%;top:50%;transform:translateY(-50%);font-size:240px;opacity:.1;color:var(--tan-400);animation:mbfloat 6s ease-in-out infinite;pointer-events:none"><i data-lucide="rocket" style="width:240px;height:240px"></i></div>
+    <div style="max-width:1240px;margin:0 auto;padding:64px 32px;position:relative;z-index:1;width:100%">
+      <h1 style="margin:0;font-size:68px;font-weight:800;line-height:1.04;letter-spacing:-.025em;color:#fff;animation:mbrise .55s ease .1s both">Госуслуги бизнесу</h1>
+      <div style="height:84px;overflow:hidden;margin-top:6px;position:relative">
+        <div style="font-size:64px;font-weight:800;line-height:84px;letter-spacing:-.02em;color:var(--tan-400)" key="{{ slideWord }}">
+          <span class="mb-hword" style="display:inline-block">{{ slideWord }}</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;animation:mbrise .6s ease .55s both">
+        <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:18px;padding:16px 34px;border-radius:14px;box-shadow:0 12px 28px -10px rgba(221,75,51,.7)" style-hover="background:var(--coral-700)">Получить поддержку</button>
+        <a href="#services" class="mb-btn" style="cursor:pointer;background:transparent;color:#fff;font-weight:700;font-size:18px;padding:16px 34px;border-radius:14px;border:1px solid rgba(255,255,255,.42);display:inline-flex;align-items:center">Подобрать услугу</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES — picker with filters + carousel (mbnso /support) -->
+  <section id="services" style="max-width:1240px;margin:0 auto;padding:88px 32px 64px">
+    <div style="margin-bottom:16px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:10px">Услуги</div>
+      <h2 style="margin:0;font-size:42px;font-weight:800;letter-spacing:-.02em;color:var(--text-strong)">Подберите меру поддержки</h2>
+      <p style="margin:12px 0 0;font-size:18px;color:var(--text-muted);max-width:680px">Отфильтруйте по форме бизнеса и виду поддержки — мы покажем подходящие услуги. Все услуги центра бесплатны.</p>
+    </div>
+
+    <!-- Audience segment cards (mbnso style) -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:28px">
+      <sc-for list="{{ segments }}" as="g" hint-placeholder-count="0">
+        <a href="{{ g.href }}" class="mb-card" style="cursor:pointer;text-align:left;border:1px solid var(--border-subtle);background:{{ g.bg }};border-radius:22px;padding:24px 24px 0;display:flex;flex-direction:column;overflow:hidden;min-height:400px;position:relative">
+          <div style="font-weight:800;font-size:20px;line-height:1.2;color:var(--brown-900);position:relative;z-index:2">{{ g.title }}</div>
+          <div style="font-size:13px;color:var(--brown-700);margin-top:8px;line-height:1.4;position:relative;z-index:2;max-width:190px">{{ g.subtitle }}</div>
+          <span style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-weight:700;font-size:13px;color:var(--coral-600);position:relative;z-index:2">Подобрать услуги <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span>
+          {{ g.imgEl }}
+        </a>
+      </sc-for>
+    </div>
+
+    <!-- Filters -->
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:30px">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:13px;font-weight:700;color:var(--text-muted);min-width:140px">Форма бизнеса</span>
+        <sc-for list="{{ formaChips }}" as="c" hint-placeholder-count="5">
+          <button class="mb-btn" onClick="{{ c.onClick }}" style="cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font-weight:700;font-size:14px;padding:9px 17px;border-radius:999px">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:13px;font-weight:700;color:var(--text-muted);min-width:140px">Вид поддержки</span>
+        <sc-for list="{{ vidChips }}" as="c" hint-placeholder-count="6">
+          <button class="mb-btn" onClick="{{ c.onClick }}" style="cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font-weight:700;font-size:14px;padding:9px 17px;border-radius:999px">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- Carousel -->
+    <div style="position:relative">
+      <div ref="{{ carouselRef }}" class="mb-scroll" style="display:flex;gap:20px;overflow-x:auto;padding:6px 2px 12px">
+        <sc-for list="{{ filteredServices }}" as="s" hint-placeholder-count="6">
+          <a href="#" class="mb-card" style="scroll-snap-align:start;flex:0 0 320px;display:flex;flex-direction:column;gap:14px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;padding:26px">
+            <div style="width:52px;height:52px;border-radius:14px;background:var(--tan-100);color:var(--coral-600);display:flex;align-items:center;justify-content:center"><i data-lucide="{{ s.icon }}" style="width:26px;height:26px"></i></div>
+            <div style="font-weight:700;font-size:19px;color:var(--text-strong);line-height:1.25">{{ s.title }}</div>
+            <div style="font-size:14px;color:var(--text-muted);line-height:1.5;flex:1">{{ s.desc }}</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="font-size:11px;font-weight:700;color:var(--brown-700);background:var(--tan-100);padding:3px 9px;border-radius:999px">{{ s.vid }}</span>
+            </div>
+            <div class="mb-link" style="font-weight:700;font-size:14px;color:var(--coral-600);display:flex;align-items:center;gap:6px">Получить услугу <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
+          </a>
+        </sc-for>
+        <sc-if value="{{ noServices }}" hint-placeholder-val="{{ false }}">
+          <div style="flex:0 0 100%;padding:40px;text-align:center;color:var(--text-muted);font-size:16px">По выбранным фильтрам услуг не найдено. Сбросьте фильтры или оставьте заявку — мы подберём поддержку индивидуально.</div>
+        </sc-if>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:18px;align-items:center">
+        <button class="mb-btn" onClick="{{ scrollPrev }}" style="cursor:pointer;width:46px;height:46px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface-card);color:var(--brown-800);display:flex;align-items:center;justify-content:center" style-hover="background:var(--tan-100)"><i data-lucide="arrow-left" style="width:20px;height:20px"></i></button>
+        <button class="mb-btn" onClick="{{ scrollNext }}" style="cursor:pointer;width:46px;height:46px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface-card);color:var(--brown-800);display:flex;align-items:center;justify-content:center" style-hover="background:var(--tan-100)"><i data-lucide="arrow-right" style="width:20px;height:20px"></i></button>
+        <span style="margin-left:6px;font-size:14px;color:var(--text-muted)">{{ filteredCount }} услуг по вашему запросу</span>
+        <button class="mb-btn" onClick="{{ openModal }}" style="margin-left:auto;cursor:pointer;border:none;background:var(--brown-800);color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:13px" style-hover="background:var(--brown-900)">Не нашли нужное? Спросить</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + animated counters -->
+  <section id="about" style="background:var(--tan-100)">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:10px">О Центре</div>
+        <h2 style="margin:0 0 18px;font-size:40px;font-weight:800;letter-spacing:-.02em;color:var(--text-strong)">Помогаем бизнесу расти с 2013 года</h2>
+        <p style="margin:0 0 16px;font-size:19px;line-height:1.6;color:var(--text-body)">Центр «Мой бизнес» — единое окно государственной поддержки предпринимателей Калининградской области. Здесь предприниматель получает всё необходимое для роста: от первой консультации до выхода на экспорт.</p>
+        <p style="margin:0 0 28px;font-size:17px;line-height:1.6;color:var(--text-muted)">Финансовая, консультационная, образовательная и имущественная поддержка — для ООО, ИП и самозанятых. Все услуги бесплатны.</p>
+        <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:16px;padding:14px 28px;border-radius:14px;box-shadow:0 10px 24px -10px rgba(221,75,51,.7)" style-hover="background:var(--coral-700)">Получить поддержку</button>
+      </div>
+      <div ref="{{ countersRef }}" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <sc-for list="{{ counters }}" as="c" hint-placeholder-count="3">
+          <div class="mb-card" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;padding:26px 24px">
+            <div style="font-size:44px;font-weight:800;letter-spacing:-.02em;color:var(--coral-600);line-height:1" data-count="{{ c.value }}">{{ c.display }}</div>
+            <div style="font-size:14px;color:var(--text-muted);margin-top:10px;line-height:1.4">{{ c.label }}</div>
+          </div>
+        </sc-for>
+        <div style="background:var(--brown-800);border-radius:18px;padding:26px 24px;color:#fff;display:flex;flex-direction:column;justify-content:center">
+          <div style="font-size:18px;font-weight:700;line-height:1.3">Все услуги — бесплатно</div>
+          <div style="font-size:13px;color:rgba(251,246,240,.7);margin-top:6px">в рамках нацпроекта «МСП»</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTOR -->
+  <section style="max-width:1240px;margin:0 auto;padding:84px 32px">
+    <div style="display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:center">
+      <div style="width:100%;height:420px;border-radius:22px;overflow:hidden;background:#EDECF2">
+        <img src="assets/director.png" alt="Кирилл Лило, директор Центра «Мой бизнес»" style="width:100%;height:100%;object-fit:cover;object-position:50% 10%;display:block">
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:10px">Слово директора</div>
+        <h2 style="margin:0 0 6px;font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--text-strong)">Кирилл Лило</h2>
+        <div style="font-size:16px;color:var(--text-muted);margin-bottom:22px">Директор Центра «Мой бизнес»</div>
+        <p style="margin:0 0 28px;font-size:21px;line-height:1.6;color:var(--text-body);max-width:640px">«Наша задача — сделать государственную поддержку понятной и доступной. Приходите с идеей — уходите с планом, финансированием и командой, готовой помочь».</p>
+        <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--brown-800);color:#fff;font-weight:700;font-size:16px;padding:14px 28px;border-radius:14px" style-hover="background:var(--brown-900)">Получить поддержку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS — with speaker photo, full titles -->
+  <section id="events" style="background:var(--surface-card);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 32px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:10px">Мероприятия</div>
+          <h2 style="margin:0;font-size:42px;font-weight:800;letter-spacing:-.02em;color:var(--text-strong)">Ближайшие события</h2>
+        </div>
+        <a class="mb-link" href="#" style="font-weight:700;font-size:15px;color:var(--coral-600);display:flex;align-items:center;gap:6px">Все мероприятия <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <sc-for list="{{ events }}" as="e" hint-placeholder-count="6">
+          <div class="mb-card" style="display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--border-subtle);border-radius:18px;overflow:hidden">
+            <div style="position:relative;height:180px;background:linear-gradient(135deg,var(--brown-700),var(--tan-500))">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ e.slot }}" shape="rect" placeholder="Фото спикера" hint-size="100%,180px" style="width:100%;height:180px;display:block"></x-import>
+              <span style="position:absolute;top:14px;left:14px;background:var(--coral-600);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;z-index:2">{{ e.tag }}</span>
+              <span style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,.95);color:var(--brown-800);font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;z-index:2">{{ e.dateLabel }}</span>
+            </div>
+            <div style="padding:22px;display:flex;flex-direction:column;gap:12px;flex:1">
+              <div style="font-weight:700;font-size:18px;color:var(--text-strong);line-height:1.32">{{ e.title }}</div>
+              <div style="font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:6px"><i data-lucide="clock" style="width:14px;height:14px"></i>{{ e.meta }}</div>
+              <button class="mb-btn" onClick="{{ openModal }}" style="margin-top:auto;cursor:pointer;border:1px solid var(--border-strong);background:transparent;color:var(--brown-800);font-weight:700;font-size:14px;padding:11px;border-radius:12px;width:100%" style-hover="background:var(--tan-100)">Записаться</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS — image-led, no date on the left -->
+  <section id="news" style="max-width:1240px;margin:0 auto;padding:84px 32px 64px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:10px">Новости</div>
+        <h2 style="margin:0;font-size:42px;font-weight:800;letter-spacing:-.02em;color:var(--text-strong)">Что нового в центре</h2>
+      </div>
+      <a class="mb-link" href="#" style="font-weight:700;font-size:15px;color:var(--coral-600);display:flex;align-items:center;gap:6px">Все новости <i data-lucide="arrow-right" style="width:16px;height:16px"></i></a>
+    </div>
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:auto auto;gap:20px">
+      <a href="#" class="mb-card" style="grid-row:span 2;display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:20px;overflow:hidden">
+        <div style="position:relative;flex:1;min-height:300px;background:linear-gradient(135deg,var(--tan-400),var(--brown-700))">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="news-hero" shape="rect" placeholder="Фото новости" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%;display:block"></x-import>
+        </div>
+        <div style="padding:26px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-600)">{{ newsHero.cat }}</span>
+          <div style="font-weight:800;font-size:24px;color:var(--text-strong);line-height:1.25">{{ newsHero.title }}</div>
+          <div style="font-size:15px;color:var(--text-muted);line-height:1.5">{{ newsHero.excerpt }}</div>
+        </div>
+      </a>
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="4">
+        <a href="#" class="mb-card" style="display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;overflow:hidden">
+          <div style="position:relative;height:120px;background:linear-gradient(135deg,var(--tan-300),var(--tan-500))">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ n.slot }}" shape="rect" placeholder="Фото" hint-size="100%,120px" style="position:absolute;inset:0;width:100%;height:120px;display:block"></x-import>
+          </div>
+          <div style="padding:18px;display:flex;flex-direction:column;gap:8px;flex:1">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-600)">{{ n.cat }}</span>
+            <div style="font-weight:700;font-size:15px;color:var(--text-strong);line-height:1.32">{{ n.title }}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- STORIES — photo + story, fewer blocks -->
+  <section id="stories" style="background:var(--brown-800);color:#fff">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 32px">
+      <div style="margin-bottom:36px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--tan-400);margin-bottom:10px">Истории успеха</div>
+        <h2 style="margin:0;font-size:42px;font-weight:800;letter-spacing:-.02em;color:#fff">Бизнес, который мы поддержали</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <sc-for list="{{ stories }}" as="s" hint-placeholder-count="2">
+          <a href="#" class="mb-card" style="display:flex;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;overflow:hidden;min-height:220px">
+            <div style="position:relative;flex:0 0 42%;background:linear-gradient(135deg,var(--tan-400),var(--brown-700))">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ s.slot }}" shape="rect" placeholder="Фото" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%;display:block"></x-import>
+            </div>
+            <div style="padding:26px;display:flex;flex-direction:column;gap:12px;flex:1">
+              <span style="align-self:flex-start;background:var(--coral-600);color:#fff;font-size:11px;font-weight:700;padding:4px 11px;border-radius:999px">{{ s.tag }}</span>
+              <div style="font-weight:700;font-size:19px;color:#fff;line-height:1.3">{{ s.title }}</div>
+              <div style="font-size:14px;color:rgba(251,246,240,.72);line-height:1.5;flex:1">{{ s.excerpt }}</div>
+              <div class="mb-link" style="font-weight:700;font-size:14px;color:var(--tan-400);display:flex;align-items:center;gap:6px">Читать историю <i data-lucide="arrow-right" style="width:15px;height:15px"></i></div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO — autoplay muted + subscribe -->
+  <section style="max-width:1240px;margin:0 auto;padding:84px 32px">
+    <div style="display:grid;grid-template-columns:1.4fr .9fr;gap:48px;align-items:center">
+      <div style="position:relative;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px -28px rgba(58,34,29,.55);background:#000;aspect-ratio:16/9">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="video-poster" shape="rect" placeholder="Превью видео" hint-size="100%,100%" style="position:absolute;inset:0;width:100%;height:100%;display:block"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(42,32,29,.6));pointer-events:none"></div>
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(221,75,51,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 36px -10px rgba(221,75,51,.8);pointer-events:none"><i data-lucide="play" style="width:32px;height:32px;color:#fff;margin-left:4px"></i></div>
+        <div style="position:absolute;left:20px;bottom:18px;color:#fff;font-weight:700;font-size:16px;text-shadow:0 2px 8px rgba(0,0,0,.5);z-index:2">Центр «Мой бизнес» — о нас за 60 секунд</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:10px">Видео</div>
+        <h2 style="margin:0 0 16px;font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--text-strong)">Смотрите наш канал</h2>
+        <p style="margin:0 0 26px;font-size:17px;line-height:1.6;color:var(--text-muted)">Истории предпринимателей, разборы мер поддержки, записи мероприятий и анонсы — на нашем YouTube-канале.</p>
+        <a href="#" class="mb-btn" style="display:inline-flex;align-items:center;gap:10px;cursor:pointer;background:#dd4b33;color:#fff;font-weight:700;font-size:16px;padding:14px 26px;border-radius:14px;box-shadow:0 10px 24px -10px rgba(221,75,51,.7)" style-hover="background:var(--coral-700)"><i data-lucide="monitor-play" style="width:22px;height:22px"></i>Подписаться на канал</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS — floating, uniform, clickable -->
+  <section style="background:var(--surface-card);border-top:1px solid var(--border-subtle)">
+    <div style="max-width:1240px;margin:0 auto;padding:72px 32px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-600);margin-bottom:30px;text-align:center">Партнёры</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="10">
+          <a href="#" class="mb-card" style="height:96px;background:var(--bg);border:1px solid var(--border-subtle);border-radius:16px;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;text-align:center;animation:mbfloat {{ p.dur }} ease-in-out {{ p.delay }} infinite">
+            <i data-lucide="{{ p.icon }}" style="width:22px;height:22px;color:var(--coral-600);flex:none"></i>
+            <span style="font-weight:700;font-size:13px;color:var(--text-body);line-height:1.2">{{ p.name }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP with rocket -->
+  <section id="map" style="position:relative">
+    <div style="height:420px;background:linear-gradient(135deg,var(--tan-200),var(--tan-400));position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 20% 30%,rgba(255,255,255,.5),transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.35),transparent 45%)"></div>
+      <div style="position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px">
+        <div style="width:64px;height:64px;border-radius:50%;background:var(--coral-600);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -10px rgba(221,75,51,.8);animation:mbfloat 4s ease-in-out infinite"><i data-lucide="rocket" style="width:32px;height:32px;color:#fff"></i></div>
+        <div style="width:14px;height:14px;border-radius:50%;background:rgba(221,75,51,.3)"></div>
+      </div>
+      <div class="mb-card" style="position:absolute;left:32px;bottom:32px;max-width:340px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;padding:24px">
+        <div style="font-weight:800;font-size:18px;color:var(--text-strong);margin-bottom:8px">Центр «Мой бизнес»</div>
+        <div style="font-size:14px;color:var(--text-muted);line-height:1.6">г. Калининград, ул. Уральская, 18<br>4-й этаж, каб. 408–422<br>Пн–Чт 09:00–18:00 · Пт до 17:00</div>
+        <a href="#" class="mb-link" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-weight:700;font-size:14px;color:var(--coral-600)">Построить маршрут <i data-lucide="arrow-up-right" style="width:15px;height:15px"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="max-width:1240px;margin:0 auto;padding:80px 32px">
+    <div style="background:var(--brown-800);border-radius:26px;padding:56px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden">
+      <div style="position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(207,158,112,.35),transparent 65%)"></div>
+      <div style="max-width:620px;position:relative;z-index:1">
+        <h2 style="margin:0 0 12px;color:#fff;font-size:34px;font-weight:800;letter-spacing:-.01em">Заявка на консультацию</h2>
+        <p style="margin:0;color:rgba(251,246,240,.84);font-size:19px;line-height:1.55">Оставьте свой вопрос, и мы обязательно свяжемся с вами. Специалист центра подберёт подходящие меры поддержки — бесплатно.</p>
+      </div>
+      <button class="mb-btn" onClick="{{ openModal }}" style="position:relative;z-index:1;border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:18px;padding:17px 34px;border-radius:14px;box-shadow:0 12px 28px -10px rgba(221,75,51,.7)" style-hover="background:var(--coral-700)">Записаться на консультацию</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contacts" style="background:var(--brown-900);color:rgba(251,246,240,.72)">
+    <div style="max-width:1240px;margin:0 auto;padding:64px 32px 36px;display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:44px">
+      <div>
+        <img src="assets/logo-full.png" alt="Мой бизнес" style="height:46px;margin-bottom:18px;filter:brightness(0) invert(1)">
+        <p style="margin:0 0 20px;font-size:14px;line-height:1.6;max-width:340px">Центр поддержки предпринимательства Калининградской области. Все услуги центра бесплатны.</p>
+        <div style="display:flex;gap:12px">
+          <sc-for list="{{ socials }}" as="so" hint-placeholder-count="4">
+            <a class="mb-link" href="#" style="width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center"><i data-lucide="{{ so }}" style="width:18px;height:18px"></i></a>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--tan-400);font-weight:700;font-size:14px;margin-bottom:14px">Разделы</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:14px">
+          <a class="mb-link" href="#about">О Центре</a>
+          <a class="mb-link" href="#services">Услуги</a>
+          <a class="mb-link" href="#events">Мероприятия</a>
+          <a class="mb-link" href="#news">Новости</a>
+          <a class="mb-link" href="#stories">Истории успеха</a>
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--tan-400);font-weight:700;font-size:14px;margin-bottom:14px">Реквизиты и контакты</div>
+        <div style="font-size:14px;line-height:1.7">
+          236022, г. Калининград, ул. Уральская, 18, каб. 408–422<br>
+          <a class="mb-link" href="tel:+74012994588">+7 (4012) 994&nbsp;588</a> · <a class="mb-link" href="tel:+74012994904">994-904</a><br>
+          <a class="mb-link" href="mailto:info@mbkaliningrad.ru">info@mbkaliningrad.ru</a><br>
+          <span style="color:rgba(251,246,240,.55)">Для СМИ:</span> <a class="mb-link" href="mailto:pr@mbkaliningrad.ru">pr@mbkaliningrad.ru</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.12);padding:18px 0;text-align:center;font-size:13px;color:rgba(251,246,240,.5)">© 2013–2026 Фонд поддержки предпринимательства · Национальный проект «МСП»</div>
+  </footer>
+
+  <!-- Sticky consult button -->
+  <button class="mb-btn" onClick="{{ openModal }}" style="position:fixed;right:26px;bottom:26px;z-index:45;border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:15px 24px;border-radius:999px;display:flex;align-items:center;gap:9px;animation:mbpulse 2.4s ease-in-out infinite" style-hover="background:var(--coral-700)"><i data-lucide="message-circle" style="width:20px;height:20px"></i>Записаться на консультацию</button>
+
+  <!-- MODAL -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModal }}" style="position:fixed;inset:0;background:rgba(42,32,29,.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:20px">
+      <div onClick="{{ stop }}" style="background:var(--surface-card);border-radius:20px;padding:32px;width:480px;max-width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 30px 80px -30px rgba(0,0,0,.5)">
+        <sc-if value="{{ modalSent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:14px 0">
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(46,139,87,.15);color:var(--success);display:flex;align-items:center;justify-content:center;margin:0 auto 18px"><i data-lucide="check" style="width:32px;height:32px"></i></div>
+            <h3 style="margin:0 0 10px;color:var(--text-strong);font-size:22px">Спасибо за обращение</h3>
+            <p style="margin:0 0 22px;color:var(--text-muted);font-size:16px;line-height:1.5">Наши специалисты свяжутся с вами в течение одного рабочего дня.</p>
+            <button class="mb-btn" onClick="{{ closeModal }}" style="border:none;cursor:pointer;background:var(--brown-800);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:13px">Закрыть</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ modalForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+              <div>
+                <h3 style="margin:0 0 4px;color:var(--text-strong);font-size:23px">Заявка на консультацию</h3>
+                <p style="margin:0;color:var(--text-muted);font-size:14px">Оставьте свой вопрос, и мы обязательно свяжемся с вами.</p>
+              </div>
+              <button onClick="{{ closeModal }}" style="flex:none;cursor:pointer;border:none;background:var(--tan-100);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--brown-800)"><i data-lucide="x" style="width:18px;height:18px"></i></button>
+            </div>
+            <input placeholder="Фамилия, имя, отчество" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
+            <input placeholder="Телефон" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
+            <input placeholder="Электронная почта" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
+            <textarea placeholder="Кратко опишите вопрос (необязательно)" rows="3" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg);resize:vertical"></textarea>
+            <button class="mb-btn" onClick="{{ submitModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:16px;padding:14px;border-radius:13px;width:100%" style-hover="background:var(--coral-700)">Отправить заявку</button>
+            <p style="margin:0;font-size:11.5px;color:var(--text-muted);line-height:1.45">Отправляя заявку, я даю своё согласие на обработку моих персональных данных в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных», на условиях и для целей, определённых в Согласии на обработку персональных данных.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { modalOpen: false, sent: false, forma: "Все", vid: "Все", counted: false, slideIdx: 0 };
+
+  componentDidMount() {
+    this._slides = ["для роста","для масштабирования","для развития","для продвижения","для инноваций","для финансовой стабильности","для смелых идей","для экспорта","для выхода за рубеж","для будущего","для устойчивости"];
+    this._slideTimer = setInterval(() => this.setState(s => ({ slideIdx: (s.slideIdx + 1) % this._slides.length })), 2200);
+    this._startCarousel();
+    this._draw();
+    this._mo = new MutationObserver(() => this._draw());
+    this._mo.observe(document.body, { childList: true, subtree: true });
+    this._initCounters();
+  }
+  componentDidUpdate() { this._draw(); }
+  componentWillUnmount() { if (this._mo) this._mo.disconnect(); if (this._io) this._io.disconnect(); if (this._slideTimer) clearInterval(this._slideTimer); if (this._carRAF) cancelAnimationFrame(this._carRAF); }
+
+  _startCarousel() {
+    if (this._carRAF) cancelAnimationFrame(this._carRAF);
+    const speed = 0.5; // px per frame
+    const tick = () => {
+      const el = this._carousel;
+      if (el && !this._carPaused) {
+        const max = el.scrollWidth - el.clientWidth;
+        if (max > 0) {
+          let next = el.scrollLeft + speed;
+          if (next >= max - 1) next = 0;
+          el.scrollLeft = next;
+        }
+      }
+      this._carRAF = requestAnimationFrame(tick);
+    };
+    this._carRAF = requestAnimationFrame(tick);
+  }
+
+  _draw() {
+    clearTimeout(this._t);
+    this._t = setTimeout(() => { if (window.lucide) window.lucide.createIcons(); }, 60);
+  }
+
+  _initCounters() {
+    const tryInit = () => {
+      const root = this._countersEl;
+      if (!root) { setTimeout(tryInit, 200); return; }
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting && !this._animated) { this._animated = true; this._runCounters(); } });
+      }, { threshold: 0.4 });
+      this._io.observe(root);
+    };
+    tryInit();
+  }
+
+  _runCounters() {
+    const els = this._countersEl.querySelectorAll("[data-count]");
+    els.forEach(el => {
+      const target = parseInt(el.getAttribute("data-count"), 10);
+      const dur = 1600, start = performance.now();
+      const fmt = (n) => n.toLocaleString("ru-RU");
+      const step = (now) => {
+        const p = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  renderVals() {
+    const services = [
+      { icon: "banknote", title: "Микрокредитование", desc: "Льготные займы до 5 млн ₽ на развитие и пополнение оборотных средств.", forma: ["ООО","ИП"], vid: "Финансовая" },
+      { icon: "shield-check", title: "Поручительство по кредитам", desc: "Гарантии Фонда при нехватке залога для кредита в банке.", forma: ["ООО","ИП"], vid: "Финансовая" },
+      { icon: "scale", title: "Юридические консультации", desc: "Бесплатная помощь юриста по договорам, регистрации и спорам.", forma: ["ООО","ИП","Самозанятый"], vid: "Консультационная" },
+      { icon: "calculator", title: "Бухгалтерское сопровождение", desc: "Консультации по учёту, налогам и отчётности для бизнеса.", forma: ["ООО","ИП","Самозанятый"], vid: "Консультационная" },
+      { icon: "graduation-cap", title: "Обучающие программы", desc: "Семинары, тренинги и курсы по развитию и управлению бизнесом.", forma: ["ООО","ИП","Самозанятый"], vid: "Образовательная" },
+      { icon: "globe", title: "Поддержка экспорта", desc: "Сопровождение выхода продукции на зарубежные рынки, поиск партнёров.", forma: ["ООО","ИП"], vid: "Экспорт" },
+      { icon: "building-2", title: "Имущественная поддержка", desc: "Аренда помещений и оборудования на льготных условиях.", forma: ["ООО","ИП"], vid: "Имущественная" },
+      { icon: "megaphone", title: "Продвижение и маркетплейсы", desc: "Помощь с выходом на маркетплейсы и продвижением продукции.", forma: ["ИП","Самозанятый"], vid: "Консультационная" },
+      { icon: "lightbulb", title: "Поддержка самозанятых", desc: "Консультации, обучение и сервисы для тех, кто только начинает.", forma: ["Самозанятый"], vid: "Консультационная" },
+      { icon: "medal", title: "Ветеранам СВО и их семьям", desc: "Хотите начать своё дело? Оставьте заявку — поможем!", forma: ["ООО","ИП","Самозанятый"], vid: "Консультационная" },
+    ];
+
+    const formas = ["Все", "ООО", "ИП", "Самозанятый"];
+    const vids = ["Все", "Финансовая", "Консультационная", "Образовательная", "Имущественная", "Экспорт"];
+
+    const filtered = services.filter(s =>
+      (this.state.forma === "Все" || s.forma.includes(this.state.forma)) &&
+      (this.state.vid === "Все" || s.vid === this.state.vid)
+    );
+
+    const chip = (label, active, onClick) => ({
+      label, onClick,
+      bg: active ? "var(--coral-600)" : "var(--surface-card)",
+      color: active ? "#fff" : "var(--text-body)",
+      border: active ? "var(--coral-600)" : "var(--border-strong)",
+    });
+
+    const slides = this._slides || ["для роста"];
+    return {
+      slideWord: slides[this.state.slideIdx % slides.length],
+      modalOpen: this.state.modalOpen,
+      modalForm: this.state.modalOpen && !this.state.sent,
+      modalSent: this.state.modalOpen && this.state.sent,
+      openModal: () => this.setState({ modalOpen: true, sent: false }),
+      closeModal: () => this.setState({ modalOpen: false, sent: false }),
+      submitModal: () => this.setState({ sent: true }),
+      stop: (e) => e.stopPropagation(),
+
+      countersRef: (el) => { this._countersEl = el; },
+      carouselRef: (el) => {
+        this._carousel = el;
+        if (el && !el._mbHover) {
+          el._mbHover = true;
+          el.addEventListener("mouseenter", () => { this._carPaused = true; });
+          el.addEventListener("mouseleave", () => { this._carPaused = false; });
+        }
+      },
+      scrollPrev: () => { if (this._carousel) this._carousel.scrollBy({ left: -680, behavior: "smooth" }); },
+      scrollNext: () => { if (this._carousel) this._carousel.scrollBy({ left: 680, behavior: "smooth" }); },
+
+      segments: [
+        { title: "Планирую открыть бизнес", subtitle: "Помощь на старте: от идеи до регистрации", img: "assets/seg-start.png", bg: "#EDECF2", href: "Услуги.dc.html?audience=start" },
+        { title: "Я самозанятый", subtitle: "Сервисы и консультации для самозанятых", img: "assets/seg-self.png", bg: "#EDECF2", href: "Услуги.dc.html?audience=self" },
+        { title: "У меня есть бизнес", subtitle: "Развитие, финансы и сопровождение", img: "assets/seg-business.png", bg: "#EDECF2", href: "Услуги.dc.html?audience=business" },
+        { title: "Хочу на экспорт", subtitle: "Выход на зарубежные рынки", img: "assets/seg-export.png", bg: "#EDECF2", href: "Услуги.dc.html?audience=export" },
+      ].map(g => ({ ...g, imgEl: React.createElement("img", { src: g.img, alt: g.title, style: { position: "absolute", left: "50%", bottom: 0, transform: "translateX(-50%)", height: "74%", width: "auto", objectFit: "contain", objectPosition: "bottom", zIndex: 1, pointerEvents: "none" } }) })),
+
+      formaChips: formas.map(f => chip(f, this.state.forma === f, () => this.setState({ forma: f }))),
+      vidChips: vids.map(v => chip(v, this.state.vid === v, () => this.setState({ vid: v }))),
+      filteredServices: filtered,
+      filteredCount: filtered.length,
+      noServices: filtered.length === 0,
+
+      counters: [
+        { value: 161167, display: "0", label: "услуг оказано предпринимателям" },
+        { value: 12, display: "0", label: "лет помогаем бизнесу региона" },
+        { value: 18, display: "0", label: "направлений поддержки и льгот" },
+      ],
+
+      events: [
+        { slot: "ev1", tag: "Семинар", dateLabel: "24 июня", title: "Особенности экспорта услуг из Калининградской области", meta: "10:00–12:00 · Очно" },
+        { slot: "ev2", tag: "Встреча", dateLabel: "24 июня", title: "Встреча для СМИ и блогеров региона", meta: "16:00–18:00 · Очно" },
+        { slot: "ev3", tag: "Семинар", dateLabel: "25 июня", title: "Искусство самопрезентации и налаживания деловых знакомств", meta: "11:00–13:00 · Очно" },
+        { slot: "ev4", tag: "Семинар", dateLabel: "25 июня", title: "Безопасный старт: от трудового договора до самостоятельной работы", meta: "15:00–17:00 · Очно" },
+        { slot: "ev5", tag: "Вебинар", dateLabel: "26 июня", title: "Маркировка упаковки в системе «Честный знак»", meta: "12:00–13:00 · Онлайн" },
+        { slot: "ev6", tag: "Встреча", dateLabel: "26 июня", title: "Встреча с Героем России Андреем Козловым", meta: "15:00–17:00 · Очно" },
+      ],
+
+      newsHero: { cat: "Форум", title: "Открыта регистрация на VIII Международный Балтийский бизнес-форум", excerpt: "Главное деловое событие региона пройдёт в Светлогорске. Участие бесплатное по предварительной регистрации." },
+      news: [
+        { slot: "nw1", cat: "Финансы", title: "Набсовет отобрал 27 проектов для финансирования по программе «Инвест 80-85»" },
+        { slot: "nw2", cat: "Кадры", title: "Образовательные программы АТР: как закрыть нехватку кадров в инжиниринге" },
+        { slot: "nw3", cat: "Программы", title: "Запущена программа «Креативный код. Россия» для малого и среднего бизнеса" },
+        { slot: "nw4", cat: "Экспорт", title: "Калининградские компании представят продукцию на бизнес-миссии в Беларуси" },
+      ],
+
+      stories: [
+        { slot: "st1", tag: "История успеха", title: "Производство шпунтов ПВХ из вторичного пластика", excerpt: "Как предприниматель из Знаменска с поддержкой центра запустил переработку пластика и вышел на федеральные поставки." },
+        { slot: "st2", tag: "История успеха", title: "«Балтийские узоры» покоряют новые рынки", excerpt: "Производитель меняет представление о янтаре и расширяет географию продаж при поддержке центра «Мой бизнес»." },
+      ],
+
+      partners: [
+        { name: "Работа России", icon: "briefcase", dur: "5s", delay: "0s" },
+        { name: "Мой экспорт", icon: "globe", dur: "6s", delay: ".3s" },
+        { name: "МФЦ Калининград", icon: "building", dur: "5.5s", delay: ".6s" },
+        { name: "Калининградская ТПП", icon: "landmark", dur: "6.5s", delay: ".2s" },
+        { name: "Почта России", icon: "mail", dur: "5s", delay: ".5s" },
+        { name: "Школа экспорта РЭЦ", icon: "graduation-cap", dur: "6s", delay: ".1s" },
+        { name: "Банк России", icon: "banknote", dur: "5.5s", delay: ".4s" },
+        { name: "Музей янтаря", icon: "gem", dur: "6.5s", delay: ".7s" },
+        { name: "Корпорация «МСП»", icon: "shield", dur: "5s", delay: ".25s" },
+        { name: "Туристический портал", icon: "map", dur: "6s", delay: ".55s" },
+      ],
+
+      socials: ["send", "play-circle", "rss", "users"],
+    };
+  }
+}
+</script>
+</body>
+</html>
