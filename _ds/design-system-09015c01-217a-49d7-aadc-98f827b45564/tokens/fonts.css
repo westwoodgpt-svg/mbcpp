@@ -1,0 +1,5 @@
+/* Мой бизнес — Webfonts
+   SUBSTITUTION: Manrope from Google Fonts stands in for the brand's geometric
+   sans. Replace with the official font files when available. Manrope covers
+   Latin + Cyrillic, weights 400–800. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");

@@ -1,0 +1,39 @@
+/* Мой бизнес — Base element styles & helpers (optional reset layer). */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  line-height: var(--lh-heading);
+  margin: 0 0 var(--space-4);
+}
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-extrabold); letter-spacing: var(--ls-heading); }
+h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); letter-spacing: var(--ls-heading); }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-bold); }
+h4 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); }
+
+p { margin: 0 0 var(--space-4); text-wrap: pretty; }
+
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-hover); }
+
+.mb-eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.mb-container { max-width: var(--container); margin-inline: auto; padding-inline: var(--space-5); }
