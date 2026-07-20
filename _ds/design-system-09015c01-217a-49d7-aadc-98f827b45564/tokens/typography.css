@@ -1,8 +1,9 @@
 /* Мой бизнес — Typography tokens
-   Substitution: Manrope (Google Fonts) stands in for the brand's geometric sans
-   until the official font files are supplied. Manrope ships full Cyrillic. */
+   Per the official guide: Circe for display/headings (substituted with
+   Manrope — closest free geometric sans, no official files available),
+   PT Sans for body text (the ACTUAL specified brand font, loaded for real). */
 :root {
-  --font-sans: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "PT Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-display: "Manrope", "Segoe UI", Arial, sans-serif;
 
   /* Weights */

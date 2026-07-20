@@ -27,7 +27,7 @@ function Badge({
       color: "var(--brown-700)"
     },
     accent: {
-      background: "rgba(221,75,51,0.12)",
+      background: "rgba(200,37,58,0.12)",
       color: "var(--coral-700)"
     },
     neutral: {
