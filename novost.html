@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Новость — Центр «Мой бизнес» Калининградской области</title>
+<meta name="description" content="Новости центра «Мой бизнес» Калининградской области.">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/styles.css">
+<link rel="stylesheet" href="mb-shell.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="news-data.js"></script>
+<script src="events-data.js"></script>
+<script src="mb-shell.js"></script>
+<style>
+  .mb-page { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+  .nd-crumbs { padding-top: 18px; padding-bottom: 18px; }
+
+  /* ---- Шапка материала ---- */
+  .nd-hero { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .62fr); min-height: 360px; overflow: hidden; border-radius: 22px; background: var(--brown-900); color: #fff; box-shadow: 0 16px 36px rgba(38, 31, 25, .12); margin-bottom: 40px; }
+  .nd-hero-copy { padding: clamp(28px, 4.5vw, 52px); display: flex; flex-direction: column; justify-content: center; }
+  .nd-hero h1 { max-width: 760px; margin: 12px 0 16px; font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.08; letter-spacing: -.03em; color: #fff; }
+  .nd-lead { max-width: 680px; margin-bottom: 22px; color: rgba(255, 255, 255, .74); font-size: 17px; line-height: 1.5; }
+  .nd-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: rgba(255, 255, 255, .64); font-size: 13.5px; }
+  .nd-meta strong { color: #fff; font-weight: 700; }
+  .nd-cover { position: relative; min-height: 320px; display: grid; place-items: center; overflow: hidden; }
+  .nd-cover .mb-cover { position: absolute; inset: 0; }
+  .nd-cover-number { position: relative; text-align: center; font-family: var(--font-display); font-size: 92px; font-weight: 800; line-height: .85; color: rgba(255, 255, 255, .95); text-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+  .nd-cover-number span { display: block; margin-top: 14px; font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .nd-cover.has-photo .nd-cover-number { display: none; }
+
+  /* ---- Текст ---- */
+  .nd-shell { padding-bottom: 52px; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(250px, .58fr); gap: 44px; align-items: start; }
+  .nd-article { min-width: 0; }
+  .nd-intro { margin-bottom: 26px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(19px, 2.2vw, 24px); line-height: 1.5; color: var(--text-strong); }
+  .nd-copy { max-width: 760px; font-size: 16.5px; line-height: 1.7; }
+  .nd-copy p { margin-bottom: 18px; color: var(--text-body); }
+  .nd-copy h2 { margin: 34px 0 14px; font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+  .nd-fact { margin: 26px 0; padding: 22px 24px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; border-radius: 16px; background: var(--tan-100); }
+  .nd-fact strong { color: var(--coral-600); font-family: var(--font-display); font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
+  .nd-fact span { color: var(--text-strong); font-size: 15px; line-height: 1.45; }
+  .nd-quote { margin: 30px 0; padding: 4px 0 4px 22px; border-left: 4px solid var(--coral-600); }
+  .nd-quote p { margin-bottom: 10px; color: var(--text-strong); font-family: Georgia, "Times New Roman", serif; font-size: 20px; line-height: 1.5; }
+  .nd-quote cite { color: var(--text-muted); font-size: 13.5px; font-style: normal; }
+  .nd-media { margin: 30px 0 10px; }
+  .nd-media .mb-cover { min-height: 300px; border-radius: 16px; }
+  .nd-caption { margin-top: 8px; color: var(--text-muted); font-size: 13px; line-height: 1.4; }
+  .nd-files { margin-top: 32px; padding-top: 26px; border-top: 1px solid var(--border-subtle); }
+  .nd-files h2 { margin: 0 0 8px; font-size: 22px; font-weight: 800; }
+  .nd-file { display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); }
+  .nd-file-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: var(--tan-100); color: var(--coral-600); }
+  .nd-file-icon i { width: 20px; height: 20px; }
+  .nd-file b { display: block; margin-bottom: 3px; font-size: 14.5px; font-weight: 700; color: var(--text-strong); }
+  .nd-file small { color: var(--text-muted); font-size: 12.5px; }
+  .nd-file a.dl { color: var(--brown-800); font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+  .nd-file a.dl i { width: 16px; height: 16px; }
+  .nd-article-footer { margin-top: 32px; padding-top: 20px; display: flex; justify-content: space-between; gap: 18px; border-top: 1px solid var(--border-subtle); }
+  .nd-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nd-tags a { padding: 7px 12px; border-radius: 999px; background: var(--paper); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 13px; font-weight: 600; }
+  .nd-tags a:hover { color: var(--brown-800); border-color: var(--brown-600); }
+  .nd-share { white-space: nowrap; }
+
+  .nd-aside { position: sticky; top: 96px; display: grid; gap: 14px; }
+  .nd-block { padding: 20px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--paper); }
+  .nd-block h3 { margin-bottom: 12px; font-size: 17px; font-weight: 800; }
+  .nd-block p { margin-bottom: 8px; color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+  .nd-block dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: 14px; }
+  .nd-block dt { color: var(--text-muted); }
+  .nd-block dd { margin: 0; color: var(--text-strong); font-weight: 700; }
+  .nd-aside-link { display: block; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); color: var(--brown-800); font-size: 14px; font-weight: 700; line-height: 1.35; }
+  .nd-aside-link:last-child { border-bottom: 0; padding-bottom: 0; }
+  .nd-aside-link small { display: block; color: var(--text-muted); font-weight: 400; font-size: 12.5px; margin-top: 2px; }
+  .nd-event-link { display: flex; gap: 12px; align-items: center; margin-top: 12px; padding: 12px; border-radius: 14px; background: var(--tan-100); color: var(--text-strong); }
+  .nd-event-link .d { flex: none; width: 48px; height: 48px; border-radius: 12px; background: var(--brown-800); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+  .nd-event-link .d b { font-size: 18px; font-weight: 800; }
+  .nd-event-link .d span { font-size: 10px; text-transform: uppercase; font-weight: 700; margin-top: 3px; opacity: .8; }
+  .nd-event-link b.t { display: block; font-size: 14px; font-weight: 700; line-height: 1.3; }
+  .nd-event-link small { color: var(--brown-800); font-weight: 700; font-size: 12.5px; }
+  .nd-service { position: relative; overflow: hidden; background: var(--brown-800); color: #fff; border-color: var(--brown-800); padding-right: 110px; }
+  .nd-service h3 { color: #fff; }
+  .nd-service p { color: rgba(251, 246, 240, .75); }
+  .nd-service .mb-btn-accent { margin-top: 10px; font-size: 14px; padding: 10px 16px; }
+  .nd-service img { position: absolute; right: -6px; bottom: -8px; width: 112px; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .35)); }
+
+  /* ---- Похожие и лента ---- */
+  .nd-related { padding-top: 48px; padding-bottom: 44px; border-top: 1px solid var(--border-subtle); background: var(--tan-100); }
+  .nd-related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .nd-feed { padding-top: 44px; padding-bottom: 60px; }
+  .nd-feed-list { border-top: 1px solid var(--border-subtle); }
+  .nd-feed-row { display: grid; grid-template-columns: 120px 140px minmax(0, 1fr) 110px; gap: 18px; align-items: center; min-height: 96px; padding: 16px 0; border-bottom: 1px solid var(--border-subtle); color: var(--text-strong); }
+  .nd-feed-row time { color: var(--text-muted); font-size: 13px; }
+  .nd-feed-topic { color: var(--coral-600); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .nd-feed-row h3 { margin-bottom: 5px; font-size: 16.5px; font-weight: 700; line-height: 1.32; transition: color .15s; }
+  .nd-feed-row:hover h3 { color: var(--coral-600); }
+  .nd-feed-row p { color: var(--text-muted); font-size: 13.5px; line-height: 1.4; }
+  .nd-feed-thumb { height: 64px; border-radius: 10px; }
+  .nd-feed-thumb .mb-cover { position: absolute; inset: 0; border-radius: 10px; }
+  .nd-feed-thumb { position: relative; overflow: hidden; }
+  .nd-feed-more { display: flex; justify-content: center; margin-top: 24px; }
+
+  .nd-notfound { padding: 60px 0 80px; }
+
+  @media (max-width: 1000px) {
+    .nd-hero { grid-template-columns: minmax(0, 1.25fr) minmax(220px, .58fr); }
+    .nd-shell { grid-template-columns: 1fr; gap: 28px; }
+    .nd-aside { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nd-related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nd-feed-row { grid-template-columns: 100px 120px minmax(0, 1fr); }
+    .nd-feed-thumb { display: none; }
+  }
+  @media (max-width: 760px) {
+    .nd-hero { grid-template-columns: 1fr; }
+    .nd-cover { min-height: 200px; }
+    .nd-aside, .nd-related-grid { grid-template-columns: 1fr; }
+    .nd-article-footer { flex-direction: column; align-items: flex-start; }
+    .nd-feed-row { grid-template-columns: 1fr; gap: 6px; }
+    .nd-fact { grid-template-columns: 1fr; gap: 10px; }
+    .nd-file { grid-template-columns: 40px 1fr; }
+    .nd-file a.dl { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+<div class="mb-page">
+
+  <!-- Верхняя полоса -->
+  <div class="mb-topbar">
+    <div class="mb-container">
+      <span class="org">Центр поддержки предпринимательства Калининградской области</span>
+      <div class="mb-topbar-collapse">
+        <a class="mb-link" href="tel:+74012994588"><i data-lucide="phone"></i>+7 (4012) 994&nbsp;588</a>
+        <a class="mb-link" href="mailto:info@mbkaliningrad.ru"><i data-lucide="mail"></i>info@mbkaliningrad.ru</a>
+        <a class="mb-link eye" href="#"><i data-lucide="eye"></i>Версия для слабовидящих</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Шапка -->
+  <header class="mb-header">
+    <div class="mb-container">
+      <a href="index.html" class="mb-brand" aria-label="Мой бизнес — Калининградская область">
+        <img src="assets/rocket-logo.svg" alt="">
+        <span class="mb-brand-name"><span>мой</span><span>бизнес</span></span>
+        <span class="mb-brand-region"><span class="mb-flag"><span></span><span></span><span></span></span><small>Калининградская область</small></span>
+      </a>
+      <nav class="mb-nav" aria-label="Основное меню">
+        <a class="mb-link" href="o-centre.html">О Центре</a>
+        <a class="mb-link" href="uslugi.html">Услуги</a>
+        <a class="mb-link" href="meropriyatiya.html">Мероприятия</a>
+        <a class="mb-link is-active" href="novosti.html">Новости</a>
+        <a class="mb-link" href="index.html#stories">Истории успеха</a>
+        <a class="mb-link" href="o-centre.html#contacts">Контакты</a>
+      </nav>
+      <button class="mb-btn mb-btn-accent mb-header-cta" type="button" data-open-modal>Получить поддержку</button>
+      <button class="mb-menu-btn" type="button" aria-label="Меню"><i data-lucide="menu"></i></button>
+    </div>
+    <div class="mb-mobile-menu">
+      <a class="mb-link" href="o-centre.html">О Центре</a>
+      <a class="mb-link" href="uslugi.html">Услуги</a>
+      <a class="mb-link" href="meropriyatiya.html">Мероприятия</a>
+      <a class="mb-link is-active" href="novosti.html">Новости</a>
+      <a class="mb-link" href="index.html#stories">Истории успеха</a>
+      <a class="mb-link" href="o-centre.html#contacts">Контакты</a>
+      <button class="mb-btn mb-btn-accent" type="button" data-open-modal>Получить поддержку</button>
+    </div>
+  </header>
+
+  <main id="nd-main">
+    <!-- Заполняется скриптом -->
+  </main>
+
+  <!-- Подвал -->
+  <footer class="mb-footer" id="contacts">
+    <div class="mb-container">
+      <div>
+        <span class="mb-footer-brand">
+          <img src="assets/rocket-logo.svg" alt="">
+          <span><b>мой бизнес</b><small>Калининградская область</small></span>
+        </span>
+        <p>Центр поддержки предпринимательства Калининградской области. Все услуги центра бесплатны.</p>
+        <div class="mb-socials">
+          <a class="mb-link" href="#" aria-label="Telegram"><i data-lucide="send"></i></a>
+          <a class="mb-link" href="#" aria-label="ВКонтакте"><i data-lucide="share-2"></i></a>
+          <a class="mb-link" href="#" aria-label="YouTube"><i data-lucide="video"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="mb-footer-title">Разделы</div>
+        <div class="mb-footer-links">
+          <a class="mb-link" href="o-centre.html">О Центре</a>
+          <a class="mb-link" href="uslugi.html">Услуги</a>
+          <a class="mb-link" href="meropriyatiya.html">Мероприятия</a>
+          <a class="mb-link" href="novosti.html">Новости</a>
+          <a class="mb-link" href="index.html#stories">Истории успеха</a>
+        </div>
+      </div>
+      <div>
+        <div class="mb-footer-title">Реквизиты и контакты</div>
+        <div class="mb-footer-contacts">
+          236022, г. Калининград, ул. Уральская, 18, каб. 408–422<br>
+          <a class="mb-link" href="tel:+74012994588">+7 (4012) 994&nbsp;588</a> · <a class="mb-link" href="tel:+74012994904">994-904</a><br>
+          <a class="mb-link" href="mailto:info@mbkaliningrad.ru">info@mbkaliningrad.ru</a><br>
+          <span class="muted">Для СМИ:</span> <a class="mb-link" href="mailto:pr@mbkaliningrad.ru">pr@mbkaliningrad.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-footer-bottom">© 2013–2026 Фонд поддержки предпринимательства · Национальный проект «МСП»</div>
+  </footer>
+
+  <!-- Модальное окно заявки -->
+  <div class="mb-modal" id="mb-modal" role="dialog" aria-modal="true" aria-labelledby="mb-modal-title">
+    <div class="mb-modal-card">
+      <form data-modal-form>
+        <div class="mb-modal-head">
+          <div>
+            <h3 id="mb-modal-title" data-modal-title>Заявка на консультацию</h3>
+            <p data-modal-subtitle>Оставьте свой вопрос, и мы обязательно свяжемся с вами.</p>
+          </div>
+          <button class="mb-modal-close" type="button" data-modal-close aria-label="Закрыть"><i data-lucide="x"></i></button>
+        </div>
+        <input class="mb-input" name="name" placeholder="Фамилия, имя, отчество" required>
+        <input class="mb-input" name="phone" type="tel" placeholder="Телефон" required>
+        <input class="mb-input" name="email" type="email" placeholder="Электронная почта">
+        <textarea class="mb-textarea" name="message" rows="3" placeholder="Кратко опишите вопрос (необязательно)" data-modal-message></textarea>
+        <button class="mb-btn mb-btn-accent" type="submit" data-modal-submit>Отправить заявку</button>
+        <p class="mb-modal-note">Отправляя заявку, я даю своё согласие на обработку моих персональных данных в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+      </form>
+      <div class="mb-modal-success" data-modal-success hidden>
+        <div class="ok"><i data-lucide="check"></i></div>
+        <h3>Спасибо за обращение</h3>
+        <p>Наши специалисты свяжутся с вами в течение одного рабочего дня.</p>
+        <button class="mb-btn mb-btn-primary" type="button" data-modal-close>Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var ALL = (window.MB_NEWS || []).slice().sort(function (a, b) { return a.date > b.date ? -1 : a.date < b.date ? 1 : 0; });
+  var EVENTS = window.MB_EVENTS || [];
+  var id = MB.param("id");
+  var n = null;
+  for (var i = 0; i < ALL.length; i++) if (ALL[i].id === id) { n = ALL[i]; break; }
+  var main = document.getElementById("nd-main");
+  var e = MB.esc;
+
+  if (!n) {
+    document.title = "Материал не найден — Центр «Мой бизнес»";
+    main.innerHTML = '<div class="mb-container nd-notfound"><div class="mb-empty is-visible">' +
+      '<img src="assets/mascot/face-surprised.png" alt="" width="120" height="120">' +
+      "<b>Такого материала нет</b>Возможно, ссылка устарела. Посмотрите свежие новости центра." +
+      '<div><a class="mb-btn mb-btn-primary" href="novosti.html">Все новости</a></div></div></div>';
+    MB.icons();
+    return;
+  }
+
+  document.title = n.title + " — Новости центра «Мой бизнес»";
+  var descMeta = document.querySelector('meta[name="description"]');
+  if (descMeta) descMeta.setAttribute("content", n.lead);
+
+  var d = MB.parseISO(n.date);
+  var words = (n.intro + " " + (n.body || []).map(function (b) { return b.text || ""; }).join(" ")).split(/\s+/).length;
+  var minutes = Math.max(1, Math.round(words / 180));
+
+  function block(b) {
+    switch (b.t) {
+      case "h2": return "<h2>" + e(b.text) + "</h2>";
+      case "fact": return '<div class="nd-fact"><strong>' + e(b.num) + "</strong><span>" + e(b.text) + "</span></div>";
+      case "quote": return '<blockquote class="nd-quote"><p>' + e(b.text) + "</p>" + (b.cite ? "<cite>" + e(b.cite) + "</cite>" : "") + "</blockquote>";
+      case "media": return '<figure class="nd-media" style="margin-left:0;margin-right:0">' + MB.cover({ theme: n.theme, cover: b.src }, "image") + (b.caption ? '<figcaption class="nd-caption">' + e(b.caption) + "</figcaption>" : "") + "</figure>";
+      default: return "<p>" + e(b.text) + "</p>";
+    }
+  }
+
+  var ev = null;
+  if (n.event) for (var k = 0; k < EVENTS.length; k++) if (EVENTS[k].id === n.event) { ev = EVENTS[k]; break; }
+
+  var sameTopic = ALL.filter(function (x) { return x.id !== n.id && x.cat === n.cat; });
+  var others = ALL.filter(function (x) { return x.id !== n.id && x.cat !== n.cat; });
+  var related = sameTopic.concat(others).slice(0, 3);
+  var alsoRead = others.concat(sameTopic).filter(function (x) { return related.indexOf(x) < 0; }).slice(0, 3);
+  if (alsoRead.length < 3) alsoRead = ALL.filter(function (x) { return x.id !== n.id; }).slice(0, 3);
+  var feed = ALL.filter(function (x) { return x.id !== n.id; });
+  var FEED_STEP = 5, feedLimit = FEED_STEP;
+
+  function feedRow(x) {
+    var dd = MB.parseISO(x.date);
+    return '<a class="nd-feed-row" href="novost.html?id=' + encodeURIComponent(x.id) + '">' +
+      '<time datetime="' + e(x.date) + '">' + dd.getDate() + " " + MB.MONTHS_GEN[dd.getMonth()] + " " + dd.getFullYear() + "</time>" +
+      '<span class="nd-feed-topic">' + e(x.cat) + "</span>" +
+      "<div><h3>" + e(x.title) + "</h3><p>" + e(x.lead) + "</p></div>" +
+      '<div class="nd-feed-thumb">' + MB.cover(x, "newspaper") + "</div></a>";
+  }
+  function renderFeed() {
+    document.getElementById("nd-feed-list").innerHTML = feed.slice(0, feedLimit).map(feedRow).join("");
+    document.getElementById("nd-feed-more").hidden = feed.length <= feedLimit;
+    MB.icons();
+  }
+
+  main.innerHTML =
+    '<div class="mb-container nd-crumbs"><nav class="mb-breadcrumbs" aria-label="Хлебные крошки">' +
+      '<a class="mb-link" href="index.html">Главная</a><i data-lucide="chevron-right"></i>' +
+      '<a class="mb-link" href="novosti.html">Новости</a><i data-lucide="chevron-right"></i>' +
+      '<a class="mb-link" href="novosti.html?topic=' + encodeURIComponent(n.cat) + '">' + e(n.cat) + "</a><i data-lucide=\"chevron-right\"></i>" +
+      '<span class="current">' + e(MB.dateFull(n.date)) + "</span></nav></div>" +
+
+    '<div class="mb-container"><section class="nd-hero">' +
+      '<div class="nd-hero-copy">' +
+        '<span class="mb-eyebrow on-dark">' + e(n.cat) + "</span>" +
+        "<h1>" + e(n.title) + "</h1>" +
+        '<p class="nd-lead">' + e(n.lead) + "</p>" +
+        '<div class="nd-meta"><strong>' + e(MB.deptName(n.dept)) + '</strong><span>·</span><time datetime="' + e(n.date) + '">' + e(MB.dateFull(n.date)) + "</time><span>·</span><span>" + minutes + " " + MB.plural(minutes, "минута", "минуты", "минут") + " чтения</span></div>" +
+      "</div>" +
+      '<div class="nd-cover' + (n.cover ? " has-photo" : "") + '">' + MB.cover(n, null) +
+        '<div class="nd-cover-number">' + d.getDate() + "<span>" + e(MB.MONTHS_GEN[d.getMonth()]) + " " + d.getFullYear() + "</span></div>" +
+      "</div>" +
+    "</section></div>" +
+
+    '<div class="mb-container nd-shell">' +
+      '<article class="nd-article">' +
+        '<p class="nd-intro">' + e(n.intro) + "</p>" +
+        '<div class="nd-copy">' + (n.body || []).map(block).join("") + "</div>" +
+        ((n.files || []).length ? '<div class="nd-files"><h2>Материалы</h2>' + n.files.map(function (f) {
+          return '<div class="nd-file"><div class="nd-file-icon"><i data-lucide="file-text"></i></div><div><b>' + e(f.name) + "</b><small>" + e(f.meta || "") + '</small></div><a class="dl mb-link" href="' + e(f.href || "#") + '"' + (/^https?:/.test(f.href || "") ? ' target="_blank" rel="noopener"' : "") + '><i data-lucide="download"></i>Скачать</a></div>';
+        }).join("") + "</div>" : "") +
+        '<div class="nd-article-footer">' +
+          '<div class="nd-tags">' + (n.tags || []).map(function (t) { return '<a href="novosti.html?q=' + encodeURIComponent(t) + '">' + e(t) + "</a>"; }).join("") + "</div>" +
+          '<button class="mb-btn mb-btn-outline nd-share" type="button" data-share="' + e(n.title) + '"><i data-lucide="share-2"></i>Поделиться</button>' +
+        "</div>" +
+      "</article>" +
+      '<aside class="nd-aside">' +
+        '<div class="nd-block"><h3>О материале</h3><dl><dt>Рубрика</dt><dd>' + e(n.cat) + "</dd><dt>Подразделение</dt><dd>" + e(n.dept) + "</dd><dt>Дата</dt><dd>" + e(MB.dateFull(n.date)) + "</dd></dl>" +
+          (ev ? '<a class="nd-event-link mb-card" href="meropriyatie.html?id=' + encodeURIComponent(ev.id) + '"><span class="d"><b>' + MB.parseISO(ev.date).getDate() + "</b><span>" + MB.MONTHS_SHORT[MB.parseISO(ev.date).getMonth()] + '</span></span><span><b class="t">' + e(ev.title) + "</b><small>" + (MB.isPast(ev) ? "Мероприятие состоялось" : "Перейти к регистрации") + " →</small></span></a>" : "") +
+        "</div>" +
+        '<div class="nd-block"><h3>Читайте также</h3>' + alsoRead.map(function (x) {
+          return '<a class="nd-aside-link mb-link" href="novost.html?id=' + encodeURIComponent(x.id) + '">' + e(x.title) + "<small>" + e(x.cat) + " · " + e(MB.dateDM(x.date)) + "</small></a>";
+        }).join("") + "</div>" +
+        '<div class="nd-block nd-service"><h3>Нужна консультация?</h3><p>Расскажите о своей задаче — специалисты центра подберут меру поддержки. Бесплатно.</p>' +
+          '<button class="mb-btn mb-btn-accent" type="button" data-open-modal>Получить поддержку</button>' +
+          '<img src="assets/mascot/face-happy.png" alt="" loading="lazy"></div>' +
+      "</aside>" +
+    "</div>" +
+
+    (related.length ? '<section class="nd-related"><div class="mb-container">' +
+      '<div class="mb-section-head"><h2>Похожие материалы</h2><a class="more mb-link" href="novosti.html?topic=' + encodeURIComponent(n.cat) + '">Все в рубрике «' + e(n.cat) + '» <i data-lucide="arrow-right"></i></a></div>' +
+      '<div class="nd-related-grid">' + related.map(function (x) { return MB.newsCard(x); }).join("") + "</div>" +
+    "</div></section>" : "") +
+
+    '<section class="mb-container nd-feed">' +
+      '<div class="mb-section-head"><h2>Лента новостей</h2><a class="more mb-link" href="novosti.html">Все новости <i data-lucide="arrow-right"></i></a></div>' +
+      '<div class="nd-feed-list" id="nd-feed-list"></div>' +
+      '<div class="nd-feed-more"><button class="mb-btn mb-btn-outline" type="button" id="nd-feed-more">Показать ещё</button></div>' +
+    "</section>";
+
+  renderFeed();
+  document.getElementById("nd-feed-more").addEventListener("click", function () { feedLimit += FEED_STEP; renderFeed(); });
+  MB.icons();
+})();
+</script>
+</body>
+</html>

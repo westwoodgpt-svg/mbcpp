@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мероприятие — Центр «Мой бизнес» Калининградской области</title>
+<meta name="description" content="Программа, спикеры, место проведения и регистрация на мероприятие центра «Мой бизнес» Калининградской области.">
+<link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/styles.css">
+<link rel="stylesheet" href="mb-shell.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="events-data.js"></script>
+<script src="mb-shell.js"></script>
+<style>
+  .mb-page { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+  .ed-crumbs { padding-top: 18px; padding-bottom: 18px; }
+
+  /* ---- Шапка мероприятия ---- */
+  .ed-hero { display: grid; grid-template-columns: minmax(260px, .68fr) minmax(0, 1.32fr); gap: 18px; padding-bottom: 36px; }
+  .ed-photo { position: relative; min-height: 360px; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 28px; color: #fff; }
+  .ed-photo .mb-cover { position: absolute; inset: 0; }
+  .ed-photo > * { position: relative; }
+  .ed-cover-label { color: var(--tan-400); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .ed-cover-date { margin-top: 8px; font-family: var(--font-display); font-size: clamp(48px, 6vw, 84px); line-height: .9; letter-spacing: -.04em; font-weight: 800; }
+  .ed-cover-date span { display: block; margin-top: 10px; font-size: 22px; letter-spacing: 0; font-weight: 700; }
+  .ed-cover-date small { display: block; margin-top: 6px; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, .78); letter-spacing: 0; }
+  .ed-summary { min-width: 0; border-radius: 22px; padding: 32px; background: var(--brown-900); color: #fff; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; isolation: isolate; }
+  .ed-summary::before { content: ""; position: absolute; z-index: -1; width: 220px; height: 220px; right: -60px; top: -90px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 30%; transform: rotate(32deg); }
+  .ed-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .ed-badge { display: inline-flex; align-items: center; min-height: 28px; border-radius: 999px; padding: 4px 11px; background: rgba(255, 255, 255, .12); color: rgba(255, 255, 255, .86); font-size: 12px; font-weight: 700; }
+  .ed-badge.status { background: var(--coral-600); color: #fff; }
+  .ed-badge.status.is-past { background: var(--ink-700); }
+  .ed-summary h1 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; letter-spacing: -.025em; font-weight: 800; color: #fff; }
+  .ed-lead { margin: 14px 0 20px; color: rgba(251, 246, 240, .78); font-size: 16px; line-height: 1.5; }
+  .ed-facts { display: grid; border-top: 1px solid rgba(255, 255, 255, .16); margin-bottom: 22px; }
+  .ed-fact { display: grid; grid-template-columns: 26px 1fr; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .16); }
+  .ed-fact i { width: 18px; height: 18px; color: var(--tan-400); margin-top: 1px; }
+  .ed-fact b { display: block; font-size: 14.5px; font-weight: 700; }
+  .ed-fact span { display: block; margin-top: 2px; color: rgba(255, 255, 255, .68); font-size: 13px; }
+  .ed-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+  .ed-actions .mb-btn-accent { width: 100%; padding: 14px 22px; font-size: 16px; }
+
+  /* ---- Контент ---- */
+  .ed-page { padding-top: 6px; padding-bottom: 56px; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(260px, .62fr); gap: 40px; align-items: start; }
+  .ed-article { min-width: 0; }
+  .ed-article section { padding: 30px 0; border-bottom: 1px solid var(--border-subtle); }
+  .ed-article section:first-child { padding-top: 0; }
+  .ed-article h2 { margin-bottom: 16px; font-size: 26px; letter-spacing: -.02em; font-weight: 800; }
+  .ed-article p { color: var(--text-body); font-size: 16px; line-height: 1.65; }
+  .ed-article p + p { margin-top: 12px; }
+  .ed-audience { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ed-audience span { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 8px 14px; background: var(--tan-100); color: var(--text-strong); font-size: 14px; font-weight: 700; }
+  .ed-audience span::before { content: "✓"; color: var(--coral-600); }
+  .ed-program { border-top: 1px solid var(--border-subtle); }
+  .ed-program-item { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--border-subtle); }
+  .ed-program-time { color: var(--coral-600); font-size: 14px; font-weight: 700; padding-top: 2px; }
+  .ed-program-item b { display: block; margin-bottom: 4px; font-size: 15.5px; font-weight: 700; color: var(--text-strong); }
+  .ed-program-item span { display: block; color: var(--text-muted); font-size: 14px; line-height: 1.45; }
+  .ed-speakers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .ed-speaker { display: grid; grid-template-columns: 72px 1fr; gap: 14px; align-items: center; padding: 14px; border: 1px solid var(--border-subtle); border-radius: 16px; background: var(--paper); }
+  .ed-speaker-photo { width: 72px; height: 72px; border-radius: 14px; background: var(--tan-100); color: var(--brown-800); display: grid; place-items: center; overflow: hidden; }
+  .ed-speaker-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .ed-speaker-photo i { width: 28px; height: 28px; }
+  .ed-speaker b { display: block; margin-bottom: 3px; font-size: 15px; font-weight: 700; color: var(--text-strong); line-height: 1.3; }
+  .ed-speaker span { color: var(--text-muted); font-size: 13px; line-height: 1.35; }
+
+  .ed-side { position: sticky; top: 96px; display: grid; gap: 14px; }
+  .ed-block { padding: 20px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--paper); }
+  .ed-block h3 { margin-bottom: 12px; font-size: 17px; font-weight: 800; }
+  .ed-block p { color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+  .ed-block p + p { margin-top: 8px; }
+  .ed-org { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .ed-org-logo { width: 46px; height: 46px; border-radius: 12px; background: var(--brown-800); color: #fff; display: grid; place-items: center; flex: none; }
+  .ed-org-logo i { width: 22px; height: 22px; }
+  .ed-org b { display: block; font-size: 14.5px; font-weight: 700; color: var(--text-strong); line-height: 1.3; }
+  .ed-org small { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
+  .ed-map { min-height: 120px; margin-top: 12px; border-radius: 12px; background: linear-gradient(135deg, var(--tan-100), rgba(27, 77, 143, .28)); display: grid; place-items: center; color: var(--brown-800); font-size: 13px; font-weight: 700; text-align: center; padding: 12px; }
+  .ed-map i { width: 22px; height: 22px; margin-bottom: 6px; }
+  .ed-side-link { display: flex; align-items: center; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border-subtle); color: var(--brown-800); font-size: 14px; font-weight: 700; }
+  .ed-side-link:last-child { border-bottom: 0; padding-bottom: 0; }
+  .ed-side-link i { width: 16px; height: 16px; flex: none; }
+  .ed-ask { position: relative; overflow: hidden; background: var(--brown-800); color: #fff; border-color: var(--brown-800); padding-right: 110px; }
+  .ed-ask h3 { color: #fff; }
+  .ed-ask p { color: rgba(251, 246, 240, .75); }
+  .ed-ask .mb-btn-accent { margin-top: 14px; font-size: 14px; padding: 10px 16px; }
+  .ed-ask img { position: absolute; right: -6px; bottom: -8px; width: 112px; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .35)); }
+
+  /* ---- Похожие ---- */
+  .ed-related { padding-top: 48px; padding-bottom: 60px; background: var(--tan-100); border-top: 1px solid var(--border-subtle); }
+  .ed-related-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+
+  /* ---- Не найдено ---- */
+  .ed-notfound { padding: 60px 0 80px; }
+  .ed-notfound .mb-empty { display: block; }
+
+  @media (max-width: 1000px) {
+    .ed-hero { grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); }
+    .ed-page { grid-template-columns: 1fr; gap: 28px; }
+    .ed-side { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ed-related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .ed-hero { grid-template-columns: 1fr; }
+    .ed-photo { min-height: 240px; }
+    .ed-summary { padding: 24px; }
+    .ed-speakers, .ed-side, .ed-related-grid { grid-template-columns: 1fr; }
+    .ed-program-item { grid-template-columns: 1fr; gap: 4px; }
+    .ed-actions { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="mb-page">
+
+  <!-- Верхняя полоса -->
+  <div class="mb-topbar">
+    <div class="mb-container">
+      <span class="org">Центр поддержки предпринимательства Калининградской области</span>
+      <div class="mb-topbar-collapse">
+        <a class="mb-link" href="tel:+74012994588"><i data-lucide="phone"></i>+7 (4012) 994&nbsp;588</a>
+        <a class="mb-link" href="mailto:info@mbkaliningrad.ru"><i data-lucide="mail"></i>info@mbkaliningrad.ru</a>
+        <a class="mb-link eye" href="#"><i data-lucide="eye"></i>Версия для слабовидящих</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Шапка -->
+  <header class="mb-header">
+    <div class="mb-container">
+      <a href="index.html" class="mb-brand" aria-label="Мой бизнес — Калининградская область">
+        <img src="assets/rocket-logo.svg" alt="">
+        <span class="mb-brand-name"><span>мой</span><span>бизнес</span></span>
+        <span class="mb-brand-region"><span class="mb-flag"><span></span><span></span><span></span></span><small>Калининградская область</small></span>
+      </a>
+      <nav class="mb-nav" aria-label="Основное меню">
+        <a class="mb-link" href="o-centre.html">О Центре</a>
+        <a class="mb-link" href="uslugi.html">Услуги</a>
+        <a class="mb-link is-active" href="meropriyatiya.html">Мероприятия</a>
+        <a class="mb-link" href="novosti.html">Новости</a>
+        <a class="mb-link" href="index.html#stories">Истории успеха</a>
+        <a class="mb-link" href="o-centre.html#contacts">Контакты</a>
+      </nav>
+      <button class="mb-btn mb-btn-accent mb-header-cta" type="button" data-open-modal>Получить поддержку</button>
+      <button class="mb-menu-btn" type="button" aria-label="Меню"><i data-lucide="menu"></i></button>
+    </div>
+    <div class="mb-mobile-menu">
+      <a class="mb-link" href="o-centre.html">О Центре</a>
+      <a class="mb-link" href="uslugi.html">Услуги</a>
+      <a class="mb-link is-active" href="meropriyatiya.html">Мероприятия</a>
+      <a class="mb-link" href="novosti.html">Новости</a>
+      <a class="mb-link" href="index.html#stories">Истории успеха</a>
+      <a class="mb-link" href="o-centre.html#contacts">Контакты</a>
+      <button class="mb-btn mb-btn-accent" type="button" data-open-modal>Получить поддержку</button>
+    </div>
+  </header>
+
+  <main id="ed-main">
+    <!-- Заполняется скриптом -->
+  </main>
+
+  <!-- Подвал -->
+  <footer class="mb-footer" id="contacts">
+    <div class="mb-container">
+      <div>
+        <span class="mb-footer-brand">
+          <img src="assets/rocket-logo.svg" alt="">
+          <span><b>мой бизнес</b><small>Калининградская область</small></span>
+        </span>
+        <p>Центр поддержки предпринимательства Калининградской области. Все услуги центра бесплатны.</p>
+        <div class="mb-socials">
+          <a class="mb-link" href="#" aria-label="Telegram"><i data-lucide="send"></i></a>
+          <a class="mb-link" href="#" aria-label="ВКонтакте"><i data-lucide="share-2"></i></a>
+          <a class="mb-link" href="#" aria-label="YouTube"><i data-lucide="video"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="mb-footer-title">Разделы</div>
+        <div class="mb-footer-links">
+          <a class="mb-link" href="o-centre.html">О Центре</a>
+          <a class="mb-link" href="uslugi.html">Услуги</a>
+          <a class="mb-link" href="meropriyatiya.html">Мероприятия</a>
+          <a class="mb-link" href="novosti.html">Новости</a>
+          <a class="mb-link" href="index.html#stories">Истории успеха</a>
+        </div>
+      </div>
+      <div>
+        <div class="mb-footer-title">Реквизиты и контакты</div>
+        <div class="mb-footer-contacts">
+          236022, г. Калининград, ул. Уральская, 18, каб. 408–422<br>
+          <a class="mb-link" href="tel:+74012994588">+7 (4012) 994&nbsp;588</a> · <a class="mb-link" href="tel:+74012994904">994-904</a><br>
+          <a class="mb-link" href="mailto:info@mbkaliningrad.ru">info@mbkaliningrad.ru</a><br>
+          <span class="muted">Для СМИ:</span> <a class="mb-link" href="mailto:pr@mbkaliningrad.ru">pr@mbkaliningrad.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-footer-bottom">© 2013–2026 Фонд поддержки предпринимательства · Национальный проект «МСП»</div>
+  </footer>
+
+  <!-- Модальное окно заявки -->
+  <div class="mb-modal" id="mb-modal" role="dialog" aria-modal="true" aria-labelledby="mb-modal-title">
+    <div class="mb-modal-card">
+      <form data-modal-form>
+        <div class="mb-modal-head">
+          <div>
+            <h3 id="mb-modal-title" data-modal-title>Заявка на консультацию</h3>
+            <p data-modal-subtitle>Оставьте свой вопрос, и мы обязательно свяжемся с вами.</p>
+          </div>
+          <button class="mb-modal-close" type="button" data-modal-close aria-label="Закрыть"><i data-lucide="x"></i></button>
+        </div>
+        <input class="mb-input" name="name" placeholder="Фамилия, имя, отчество" required>
+        <input class="mb-input" name="phone" type="tel" placeholder="Телефон" required>
+        <input class="mb-input" name="email" type="email" placeholder="Электронная почта">
+        <textarea class="mb-textarea" name="message" rows="3" placeholder="Кратко опишите вопрос (необязательно)" data-modal-message></textarea>
+        <button class="mb-btn mb-btn-accent" type="submit" data-modal-submit>Отправить заявку</button>
+        <p class="mb-modal-note">Отправляя заявку, я даю своё согласие на обработку моих персональных данных в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+      </form>
+      <div class="mb-modal-success" data-modal-success hidden>
+        <div class="ok"><i data-lucide="check"></i></div>
+        <h3>Спасибо за обращение</h3>
+        <p>Наши специалисты свяжутся с вами в течение одного рабочего дня.</p>
+        <button class="mb-btn mb-btn-primary" type="button" data-modal-close>Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var ALL = window.MB_EVENTS || [];
+  var id = MB.param("id");
+  var ev = null;
+  for (var i = 0; i < ALL.length; i++) if (ALL[i].id === id) { ev = ALL[i]; break; }
+  var main = document.getElementById("ed-main");
+  var e = MB.esc;
+
+  if (!ev) {
+    document.title = "Мероприятие не найдено — Центр «Мой бизнес»";
+    main.innerHTML = '<div class="mb-container ed-notfound"><div class="mb-empty is-visible">' +
+      '<img src="assets/mascot/face-surprised.png" alt="" width="120" height="120">' +
+      "<b>Такого мероприятия нет</b>Возможно, ссылка устарела или мероприятие уже удалено из афиши." +
+      '<div><a class="mb-btn mb-btn-primary" href="meropriyatiya.html">Все мероприятия</a></div></div></div>';
+    MB.icons();
+    return;
+  }
+
+  var past = MB.isPast(ev);
+  var d = MB.parseISO(ev.date);
+  document.title = ev.title + " — Мероприятия центра «Мой бизнес»";
+  var descMeta = document.querySelector('meta[name="description"]');
+  if (descMeta) descMeta.setAttribute("content", ev.lead);
+
+  var statusLabel = past ? "Завершено" : (ev.reg === false ? "Регистрация закрыта" : "Открыта регистрация");
+  var regBtn = past
+    ? '<a class="mb-btn mb-btn-accent" href="meropriyatiya.html">Смотреть ближайшие мероприятия</a>'
+    : '<button class="mb-btn mb-btn-accent" type="button" data-open-modal data-modal-title="Регистрация на мероприятие" data-modal-subtitle="' + e(ev.title) + " · " + e(MB.dateRange(ev.date, ev.dateEnd)) + '" data-modal-submit="Зарегистрироваться" data-modal-placeholder="Компания или сфера деятельности, вопросы спикерам (необязательно)">Записаться</button>';
+
+  var facts = [
+    { icon: "calendar", b: MB.dateRange(ev.date, ev.dateEnd) + (ev.dateEnd ? "" : ", " + MB.weekday(ev.date)), s: ev.time || "" },
+    { icon: ev.format === "Онлайн" ? "monitor" : "map-pin", b: ev.place || ev.format, s: ev.address || ev.format },
+    { icon: "ticket", b: ev.price || "Бесплатно", s: ev.seats ? "Количество мест: " + ev.seats : "По предварительной регистрации" },
+    { icon: "building-2", b: "Организатор: " + ev.dept, s: MB.deptName(ev.dept) }
+  ];
+
+  var program = (ev.program || []).length
+    ? '<section><h2>Программа</h2><div class="ed-program">' + ev.program.map(function (p) {
+        return '<div class="ed-program-item"><div class="ed-program-time">' + e(p.time) + "</div><div><b>" + e(p.title) + "</b>" + (p.text ? "<span>" + e(p.text) + "</span>" : "") + "</div></div>";
+      }).join("") + "</div></section>"
+    : "";
+  var speakers = (ev.speakers || []).length
+    ? '<section><h2>Спикеры</h2><div class="ed-speakers">' + ev.speakers.map(function (s) {
+        return '<div class="ed-speaker"><div class="ed-speaker-photo">' + (s.photo ? '<img src="' + e(s.photo) + '" alt="">' : '<i data-lucide="user-round"></i>') + "</div><div><b>" + e(s.name) + "</b>" + (s.role ? "<span>" + e(s.role) + "</span>" : "") + "</div></div>";
+      }).join("") + "</div></section>"
+    : "";
+
+  var related = ALL.filter(function (x) { return x.id !== ev.id && !MB.isPast(x); })
+    .sort(function (a, b) { return (a.tag === ev.tag ? 0 : 1) - (b.tag === ev.tag ? 0 : 1) || (a.date < b.date ? -1 : 1); })
+    .slice(0, 4);
+
+  main.innerHTML =
+    '<div class="mb-container ed-crumbs"><nav class="mb-breadcrumbs" aria-label="Хлебные крошки">' +
+      '<a class="mb-link" href="index.html">Главная</a><i data-lucide="chevron-right"></i>' +
+      '<a class="mb-link" href="meropriyatiya.html">Мероприятия</a><i data-lucide="chevron-right"></i>' +
+      '<span class="current">' + e(ev.tag) + "</span></nav></div>" +
+
+    '<div class="mb-container ed-hero">' +
+      '<div class="ed-photo">' + MB.cover(ev, null) +
+        '<span class="ed-cover-label">' + (past ? "Состоялось" : "Дата проведения") + "</span>" +
+        '<div class="ed-cover-date">' + d.getDate() + (ev.dateEnd ? "–" + MB.parseISO(ev.dateEnd).getDate() : "") + "<span>" + e(MB.MONTHS_GEN[d.getMonth()]) + " " + d.getFullYear() + "</span>" +
+          "<small>" + e(ev.dateEnd ? "" : MB.weekday(ev.date)) + (ev.time ? (ev.dateEnd ? "" : " · ") + e(ev.time) : "") + "</small></div>" +
+      "</div>" +
+      '<div class="ed-summary">' +
+        '<div class="ed-badges"><span class="ed-badge status' + (past ? " is-past" : "") + '">' + e(statusLabel) + '</span><span class="ed-badge">' + e(ev.tag) + '</span><span class="ed-badge">' + e(ev.format) + '</span><span class="ed-badge">' + e(ev.price || "Бесплатно") + "</span></div>" +
+        "<h1>" + e(ev.title) + "</h1>" +
+        '<p class="ed-lead">' + e(ev.lead) + "</p>" +
+        '<div class="ed-facts">' + facts.map(function (f) { return '<div class="ed-fact"><i data-lucide="' + f.icon + '"></i><div><b>' + e(f.b) + "</b>" + (f.s ? "<span>" + e(f.s) + "</span>" : "") + "</div></div>"; }).join("") + "</div>" +
+        '<div class="ed-actions">' + regBtn + '<button class="mb-btn mb-btn-ghost" type="button" data-share="' + e(ev.title) + '"><i data-lucide="share-2"></i>Поделиться</button></div>' +
+      "</div>" +
+    "</div>" +
+
+    '<div class="mb-container ed-page">' +
+      '<article class="ed-article">' +
+        "<section><h2>О мероприятии</h2>" + (ev.about || []).map(function (p) { return "<p>" + e(p) + "</p>"; }).join("") + "</section>" +
+        ((ev.audience || []).length ? '<section><h2>Для кого</h2><div class="ed-audience">' + ev.audience.map(function (a) { return "<span>" + e(a) + "</span>"; }).join("") + "</div></section>" : "") +
+        program + speakers +
+      "</article>" +
+      '<aside class="ed-side">' +
+        '<div class="ed-block"><h3>Организатор</h3>' +
+          '<div class="ed-org"><div class="ed-org-logo"><i data-lucide="rocket"></i></div><div><b>' + e(MB.deptName(ev.dept)) + "</b><small>Центр «Мой бизнес» · Калининградская область</small></div></div>" +
+          "<p>" + e(ev.place || ev.format) + (ev.address ? "<br>" + e(ev.address) : "") + "</p>" +
+          (ev.address ? '<a class="ed-map" href="https://yandex.ru/maps/?text=' + encodeURIComponent(ev.address) + '" target="_blank" rel="noopener"><span><i data-lucide="map-pin"></i><br>Открыть на карте</span></a>' : "") +
+        "</div>" +
+        '<div class="ed-block"><h3>Контакты</h3>' +
+          '<a class="ed-side-link mb-link" href="tel:' + e((ev.contactPhone || "+7 (4012) 994 588").replace(/[^\d+]/g, "")) + '"><i data-lucide="phone"></i>' + e(ev.contactPhone || "+7 (4012) 994 588") + "</a>" +
+          (ev.contactMail ? '<a class="ed-side-link mb-link" href="mailto:' + e(ev.contactMail) + '"><i data-lucide="mail"></i>' + e(ev.contactMail) + "</a>" : "") +
+          '<a class="ed-side-link mb-link" href="#" data-open-modal data-modal-title="Вопрос о мероприятии" data-modal-subtitle="' + e(ev.title) + '"><i data-lucide="message-circle"></i>Задать вопрос организатору</a>' +
+        "</div>" +
+        '<div class="ed-block ed-ask"><h3>Нужна консультация?</h3><p>Специалисты центра помогут выбрать меру поддержки и подготовить документы. Бесплатно.</p>' +
+          '<button class="mb-btn mb-btn-accent" type="button" data-open-modal>Получить поддержку</button>' +
+          '<img src="assets/mascot/face-happy.png" alt="" loading="lazy"></div>' +
+      "</aside>" +
+    "</div>" +
+
+    (related.length ? '<section class="ed-related"><div class="mb-container">' +
+      '<div class="mb-section-head"><h2>Другие мероприятия</h2><a class="more mb-link" href="meropriyatiya.html">Все мероприятия <i data-lucide="arrow-right"></i></a></div>' +
+      '<div class="ed-related-grid">' + related.map(function (x) { return MB.eventCard(x); }).join("") + "</div>" +
+    "</div></section>" : "");
+
+  MB.icons();
+})();
+</script>
+</body>
+</html>
