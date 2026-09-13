@@ -1,5 +1,8 @@
 /* Мой бизнес — Webfonts
-   SUBSTITUTION: Manrope from Google Fonts stands in for the brand's geometric
-   sans. Replace with the official font files when available. Manrope covers
-   Latin + Cyrillic, weights 400–800. */
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+   Per the official brand guideline (p.20): display font is Circe (headings,
+   accidental type, signage); body font is PT Sans (main text-setting).
+   SUBSTITUTION: Circe is a paid font with no free distribution — Manrope
+   (Google Fonts) stands in for it as the closest free geometric-sans match.
+   PT Sans is the ACTUAL specified brand font and is loaded as-is from Google
+   Fonts. Both cover Latin + Cyrillic. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap");

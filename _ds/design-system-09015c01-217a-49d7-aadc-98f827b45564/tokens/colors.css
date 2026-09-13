@@ -1,41 +1,56 @@
-/* Мой бизнес — Color tokens
-   Derived from the official logo: coffee-brown wordmark, tan rocket, coral flame. */
+/* Мой бизнес — Color tokens · KALININGRAD REGIONAL EDITION
+   Base "Мой бизнес" palette adapted per the official guideline's regional
+   co-branding rule (p.43): "фирменный блок проекта «Мой бизнес» может быть
+   выполнен в фирменных цветах региона... в качестве основного используется
+   тёмный цвет [региона], в качестве дополнительного – один из цветов
+   геральдической зоны."
+   Kaliningrad Oblast heraldry: shield/flag red (top), amber/gold (the amber
+   circles on the shield — the region's signature symbol), azure/blue (the
+   shield's wavy base, the region's dark/primary tone), silver/white.
+   Mapping: --brown-* (primary/dark) → Kaliningrad azure blue.
+            --tan-*   (secondary)    → Kaliningrad amber/gold (янтарь).
+            --coral-* (accent)       → Kaliningrad heraldic red.
+   Same token names/roles as the national system, region-adapted values. */
 :root {
-  /* ---- Brand core ---- */
-  --brown-900: #3a221d;
-  --brown-800: #4d2f2a;   /* primary wordmark brown (logo) */
-  --brown-700: #5e3a32;
-  --brown-600: #6f463b;
-  --brown-500: #8a5d4f;
+  /* ---- Brand core (regional) ---- */
+  --brown-900: #123461;  /* Kaliningrad azure, darkest — footer/dark surfaces */
+  --brown-800: #1b4d8f;  /* Kaliningrad azure — primary, headers, CTAs */
+  --brown-700: #446da3;
+  --brown-600: #6486b3;
+  --brown-500: #88a2c5;
 
-  --tan-700: #b07d4e;
-  --tan-600: #c08b59;
-  --tan-500: #cf9e70;     /* signature tan / rocket body (logo) */
-  --tan-400: #dcb288;
-  --tan-300: #e8cba8;
-  --tan-200: #f2e0cb;
-  --tan-100: #f8eede;     /* warm cream surface */
+  --tan-700: #a17825;
+  --tan-600: #b98a2a;
+  --tan-500: #c9962e;     /* Kaliningrad amber/янтарь — secondary, marks */
+  --tan-400: #d3a954;
+  --tan-300: #dbba75;
+  --tan-200: #e5cd9b;
+  --tan-100: #f0e2c4;     /* warm amber-tinted cream surface */
 
-  --coral-700: #c23f2c;
-  --coral-600: #dd4b33;   /* accent flame (logo) */
-  --coral-500: #e05040;
-  --coral-400: #ea7361;
+  --coral-700: #a81f31;
+  --coral-600: #c8253a;   /* Kaliningrad shield/flag red — accent, CTAs */
+  --coral-500: #d04456;
+  --coral-400: #d96675;
 
-  /* ---- Neutrals (warm-tinted greys) ---- */
-  --ink-900: #2a201d;
-  --ink-700: #4f433e;
-  --ink-500: #7a6d66;
-  --ink-300: #b3a9a2;
-  --ink-200: #d9d1cb;
-  --ink-100: #ece7e2;
-  --paper: #ffffff;
+  /* ---- Documented secondary colors (national guide p.18) ---- */
+  --blue-doc: #002f87;    /* тёмно-синий — for business documentation */
+  --green-web: #00be37;   /* зелёный — for interactive elements in web */
+
+  /* ---- Neutrals (warm-tinted greys, based on official чёрный #2C2A29) ---- */
+  --ink-900: #312d2b;
+  --ink-700: #797673;
+  --ink-500: #a7a5a2;
+  --ink-300: #d0ccca;
+  --ink-200: #e2dedc;
+  --ink-100: #eeebe9;
+  --paper: #ffffff;       /* official белый */
   --bg: #faf6f1;          /* page background, faint warm */
 
   /* ---- Semantic ---- */
-  --success: #2e8b57;
+  --success: var(--green-web);
   --warning: #e0992f;
   --danger: var(--coral-600);
-  --info: #3a72b0;
+  --info: var(--blue-doc);
 
   /* ---- Aliases ---- */
   --color-primary: var(--brown-800);

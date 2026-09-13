@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/styles.css">
 <script src="_ds/design-system-09015c01-217a-49d7-aadc-98f827b45564/_ds_bundle.js"></script>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="services-data.js"></script>
 <style>
   html,body{margin:0;background:var(--bg);color:var(--text-body);font-family:var(--font-sans,'Manrope',sans-serif)}
   *{box-sizing:border-box}
@@ -29,6 +30,23 @@
   @keyframes mbrise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
   @keyframes mbfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   @keyframes mbpulse{0%,100%{box-shadow:0 12px 30px -10px rgba(221,75,51,.7)}50%{box-shadow:0 12px 40px -6px rgba(221,75,51,.95)}}
+  .mb-menu-btn{display:none}
+  /* ===== Responsive ===== */
+  @media (max-width:760px){
+    [style*="max-width: 1240px"]{padding-left:18px!important;padding-right:18px!important}
+    [style*="grid-template-columns: 300px 1fr"]{grid-template-columns:1fr!important;gap:24px!important}
+    [style*="grid-template-columns: repeat(2, 1fr)"]{grid-template-columns:1fr!important}
+    [style*="grid-template-columns: 1.5fr 1fr 1.2fr"]{grid-template-columns:1fr!important}
+    [style*="position: sticky; top: 96px"]{position:static!important;top:auto!important}
+    .mb-card-actions{flex-direction:column!important}
+    [style*="font-size: 52px"]{font-size:32px!important}
+    [style*="font-size: 30px"]{font-size:24px!important}
+    [style*="padding: 48px;"]{padding:28px!important}
+    .mb-nav{display:none!important}
+    .mb-header-cta{display:none!important}
+    .mb-menu-btn{display:inline-flex!important}
+    .mb-topbar-collapse{display:none!important}
+  }
 </style>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#3a221d"/><g transform="translate(50 50)"><path d="M-10 16 C-14 4 -8 -12 0 -18 C8 -12 14 4 10 16 Z" fill="#cf9e70"/><circle cy="-4" r="4" fill="#faf6f1"/><path d="M-6 16 L0 26 L6 16 Z" fill="#dd4b33"/></g></svg>
@@ -41,7 +59,7 @@
   <div style="background:var(--brown-900);color:rgba(251,246,240,.82);font-size:13px">
     <div style="max-width:1240px;margin:0 auto;padding:9px 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <span style="color:var(--tan-400)">Центр поддержки предпринимательства Калининградской области</span>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+      <div style="margin-left:auto;display:flex;align-items:center;gap:18px" class="mb-topbar-collapse">
         <a class="mb-link" href="tel:+74012994588" style="display:flex;align-items:center;gap:6px"><i data-lucide="phone" style="width:14px;height:14px"></i>+7 (4012) 994&nbsp;588</a>
         <a class="mb-link" href="mailto:info@mbkaliningrad.ru" style="display:flex;align-items:center;gap:6px"><i data-lucide="mail" style="width:14px;height:14px"></i>info@mbkaliningrad.ru</a>
         <a class="mb-link" href="#" style="display:flex;align-items:center;gap:6px;color:var(--tan-400)"><i data-lucide="eye" style="width:14px;height:14px"></i>Версия для слабовидящих</a>
@@ -53,7 +71,7 @@
   <header style="position:sticky;top:0;z-index:40;background:rgba(250,246,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-subtle)">
     <div style="max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:28px;height:78px">
       <a href="Лендинг Мой бизнес.dc.html" style="display:flex;align-items:center"><img src="assets/logo-full.png" alt="Мой бизнес — Калининград" style="height:46px"></a>
-      <nav style="display:flex;gap:24px;margin-left:auto">
+      <nav class="mb-nav" style="display:flex;gap:24px;margin-left:auto">
         <a class="mb-link" href="Лендинг Мой бизнес.dc.html#about" style="font-weight:600;font-size:15px">О Центре</a>
         <a class="mb-link" href="Услуги.dc.html" style="font-weight:700;font-size:15px;color:var(--coral-600)">Услуги</a>
         <a class="mb-link" href="Лендинг Мой бизнес.dc.html#events" style="font-weight:600;font-size:15px">Мероприятия</a>
@@ -61,8 +79,17 @@
         <a class="mb-link" href="Лендинг Мой бизнес.dc.html#stories" style="font-weight:600;font-size:15px">Истории успеха</a>
         <a class="mb-link" href="Лендинг Мой бизнес.dc.html#contacts" style="font-weight:600;font-size:15px">Контакты</a>
       </nav>
-      <button class="mb-btn" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:13px;box-shadow:0 8px 20px -8px rgba(221,75,51,.6)" style-hover="background:var(--coral-700)">Получить поддержку</button>
+      <button class="mb-btn mb-header-cta" onClick="{{ openModal }}" style="border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:13px;box-shadow:0 8px 20px -8px rgba(221,75,51,.6)" style-hover="background:var(--coral-700)">Получить поддержку</button>
+      <button class="mb-btn mb-menu-btn" onClick="{{ toggleMenu }}" aria-label="Меню" style="margin-left:auto;border:none;cursor:pointer;background:transparent;color:var(--brown-900);padding:6px;align-items:center"><i data-lucide="menu" style="width:28px;height:28px"></i></button>
     </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid var(--border-subtle);background:var(--bg);padding:10px 18px 18px;display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="6">
+          <a class="mb-link" href="{{ n.href }}" onClick="{{ closeMenu }}" style="font-weight:600;font-size:17px;padding:12px 6px;border-bottom:1px solid var(--border-subtle)">{{ n.label }}</a>
+        </sc-for>
+        <button class="mb-btn" onClick="{{ openModalFromMenu }}" style="margin-top:12px;border:none;cursor:pointer;background:var(--coral-600);color:#fff;font-weight:700;font-size:16px;padding:14px 22px;border-radius:13px">Получить поддержку</button>
+      </div>
+    </sc-if>
   </header>
 
   <!-- HEADING -->
@@ -144,15 +171,21 @@
           </div>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
             <sc-for list="{{ g.items }}" as="s" hint-placeholder-count="2">
-              <a href="#" onClick="{{ s.onClick }}" class="mb-card" style="display:flex;flex-direction:column;gap:13px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;padding:24px;position:relative">
+              <div class="mb-card" style="display:flex;flex-direction:column;gap:13px;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:18px;padding:24px;position:relative">
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
                   <span style="font-size:12px;font-weight:700;color:var(--brown-700);background:var(--tan-100);padding:4px 11px;border-radius:999px">{{ s.forma }}</span>
-                  <span style="color:var(--text-muted)"><i data-lucide="arrow-up-right" style="width:18px;height:18px"></i></span>
                 </div>
-                <div style="font-weight:700;font-size:18px;color:var(--text-strong);line-height:1.3">{{ s.title }}</div>
-                <div style="font-size:14px;color:var(--text-muted);line-height:1.5;flex:1">{{ s.desc }}</div>
-                <span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:{{ s.statusColor }};background:{{ s.statusBg }};padding:6px 12px;border-radius:999px;align-self:flex-start"><span style="width:7px;height:7px;border-radius:50%;background:{{ s.statusColor }}"></span>{{ s.statusLabel }}</span>
-              </a>
+                <div style="font-weight:700;font-size:18px;color:var(--text-strong);line-height:1.3;min-height:47px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ s.title }}</div>
+                <div style="font-size:14px;color:var(--text-muted);line-height:1.5;flex:1;min-height:63px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{{ s.desc }}</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+                  <span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:{{ s.statusColor }};background:{{ s.statusBg }};padding:6px 12px;border-radius:999px"><span style="width:7px;height:7px;border-radius:50%;background:{{ s.statusColor }}"></span>{{ s.statusLabel }}</span>
+                  <span title="{{ s.deptName }}" style="font-size:12px;color:var(--text-muted);display:inline-flex;align-items:center;gap:5px;min-width:0"><i data-lucide="building-2" style="width:13px;height:13px;flex:none"></i><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px">{{ s.deptName }}</span></span>
+                </div>
+                <div class="mb-card-actions" style="display:flex;gap:10px;margin-top:2px">
+                  <a href="{{ s.link }}" target="_blank" rel="noopener" class="mb-btn" style="flex:1;text-align:center;border:1px solid var(--border-strong);background:transparent;color:var(--brown-800);font-weight:700;font-size:14px;padding:11px 14px;border-radius:12px" style-hover="background:var(--tan-100)">Подробнее об услуге</a>
+                  <button onClick="{{ s.openModal }}" class="mb-btn" style="flex:1;cursor:pointer;border:none;background:var(--coral-600);color:#fff;font-weight:700;font-size:14px;padding:11px 14px;border-radius:12px;font-family:inherit" style-hover="background:var(--coral-700)">Записаться</button>
+                </div>
+              </div>
             </sc-for>
           </div>
         </div>
@@ -238,6 +271,9 @@
               </div>
               <button onClick="{{ closeModal }}" style="flex:none;cursor:pointer;border:none;background:var(--tan-100);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--brown-800)"><i data-lucide="x" style="width:18px;height:18px"></i></button>
             </div>
+            <sc-if value="{{ selectedServiceTitle }}" hint-placeholder-val="{{ false }}">
+              <div style="background:var(--tan-100);color:var(--text-muted);font-size:13px;padding:10px 13px;border-radius:11px;line-height:1.4">Заявка по услуге: <strong style="color:var(--text-strong)">{{ selectedServiceTitle }}</strong></div>
+            </sc-if>
             <input placeholder="Фамилия, имя, отчество" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
             <input placeholder="Телефон" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
             <input placeholder="Электронная почта" style="width:100%;padding:13px 15px;border:1px solid var(--border-strong);border-radius:13px;font-size:15px;font-family:inherit;background:var(--bg)">
@@ -253,13 +289,18 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { audience: "all", cats: [], modalOpen: false, sent: false };
+  state = { audience: "all", cats: [], modalOpen: false, sent: false, menuOpen: false, services: [], selectedService: null };
 
   componentDidMount() {
+    const poll = () => {
+      if (window.MB_SERVICES) this.setState({ services: window.MB_SERVICES });
+      else this._p = setTimeout(poll, 60);
+    };
+    poll();
     try {
       const p = new URLSearchParams(location.search);
       const a = p.get("audience");
-      if (a && ["start", "self", "business", "export", "veterans"].includes(a)) {
+      if (a && ["start", "self", "business", "export", "producers", "veterans"].includes(a)) {
         this.setState({ audience: a });
       }
     } catch (e) {}
@@ -267,7 +308,7 @@ class Component extends DCLogic {
   }
 
   componentDidUpdate() { this._draw(); }
-  componentWillUnmount() { clearTimeout(this._t); }
+  componentWillUnmount() { clearTimeout(this._t); clearTimeout(this._p); }
 
   _draw() {
     clearTimeout(this._t);
@@ -276,79 +317,88 @@ class Component extends DCLogic {
 
   renderVals() {
     const CATS = [
-      { key: "finance", title: "Финансы", icon: "banknote" },
-      { key: "consult", title: "Консультации", icon: "scale" },
-      { key: "education", title: "Обучение", icon: "graduation-cap" },
       { key: "promo", title: "Продвижение", icon: "megaphone" },
+      { key: "tech", title: "Технологии и сервисы", icon: "cpu" },
+      { key: "consult", title: "Консультации", icon: "messages-square" },
+      { key: "finance", title: "Финансы", icon: "banknote" },
+      { key: "education", title: "Обучение", icon: "graduation-cap" },
+      { key: "foreign", title: "Выход на зарубежные рынки", icon: "globe" },
       { key: "property", title: "Имущество", icon: "building-2" },
-      { key: "export", title: "Экспорт", icon: "globe" },
+      { key: "infra", title: "Инфраструктура", icon: "network" },
     ];
 
     const AUD = [
       { key: "all", label: "Все" },
       { key: "start", label: "Желающим открыть бизнес" },
+      { key: "business", label: "Действующим ИП, юрлицам, работодателям" },
+      { key: "producers", label: "Производителям, фермерам, инноваторам" },
       { key: "self", label: "Самозанятым" },
-      { key: "business", label: "ИП, юрлицам, работодателям" },
       { key: "export", label: "Экспортёрам" },
       { key: "veterans", label: "Ветеранам СВО и их семьям" },
     ];
 
-    const S = [
-      { cat: "finance", title: "Микрокредитование", desc: "Льготные займы до 5 млн ₽ на развитие и пополнение оборотных средств по сниженной ставке.", forma: "ИП, ЮЛ", aud: ["business", "start", "veterans"], status: "open" },
-      { cat: "finance", title: "Поручительство по кредитам", desc: "Гарантии Гарантийного фонда при нехватке залога для кредита в банке-партнёре.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
-      { cat: "finance", title: "Лизинговая поддержка", desc: "Льготный лизинг оборудования для производственных и сельхозпредприятий региона.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
+    const DEPT = {
+      "ЦПП": "Центр поддержки предпринимательства",
+      "КЦ": "Консультационный центр",
+      "ФРП": "Фонд развития промышленности",
+      "ЦКСХ": "Центр компетенций в сфере сельхозкооперации",
+      "РЦК": "Региональный центр компетенций",
+      "ИИЦ": "Инновационно-инжиниринговый центр",
+      "ФМФ": "Фонд микрофинансирования",
+      "ГФ": "Гарантийный фонд",
+      "ЦИСС": "Центр инноваций социальной сферы",
+      "ЦКР": "Центр кластерного развития",
+      "ЦПЭ": "Центр поддержки экспорта",
+      "ЦКИ": "Центр креативных индустрий",
+    };
 
-      { cat: "consult", title: "Регистрация ИП или ООО", desc: "Бесплатное сопровождение регистрации бизнеса и открытия расчётного счёта.", forma: "Физлицам", aud: ["start", "self", "veterans"], status: "open" },
-      { cat: "consult", title: "Юридические консультации", desc: "Помощь юриста по договорам, регистрации, спорам и проверкам.", forma: "ИП, ЮЛ, самозанятым", aud: ["business", "self", "start", "veterans"], status: "open" },
-      { cat: "consult", title: "Бухгалтерское сопровождение", desc: "Консультации по учёту, налогам и отчётности для бизнеса.", forma: "ИП, ЮЛ, самозанятым", aud: ["business", "self"], status: "open" },
-      { cat: "consult", title: "Подбор системы налогообложения", desc: "Расчёт налоговой нагрузки и рекомендации с учётом изменений 2026 года.", forma: "ИП, ЮЛ", aud: ["business", "start"], status: "closed" },
-
-      { cat: "education", title: "Обучающие программы и тренинги", desc: "Семинары, тренинги и курсы по развитию и управлению бизнесом.", forma: "Всем", aud: ["start", "self", "business", "veterans"], status: "open" },
-      { cat: "education", title: "Азбука предпринимателя", desc: "Базовый курс для тех, кто только планирует открыть своё дело.", forma: "Физлицам, самозанятым", aud: ["start", "self", "veterans"], status: "open" },
-      { cat: "education", title: "Школа социального предпринимательства", desc: "Программа для социальных проектов и НКО Калининградской области.", forma: "ИП, ЮЛ", aud: ["business", "start"], status: "open" },
-
-      { cat: "promo", title: "Размещение на маркетплейсах", desc: "Сопровождение выхода на Wildberries, OZON и Яндекс Маркет.", forma: "ИП, самозанятым", aud: ["business", "self"], status: "open" },
-      { cat: "promo", title: "Регистрация товарного знака", desc: "Сопровождение регистрации в Роспатенте: от проверки обозначения до подачи документов.", forma: "ИП, ЮЛ", aud: ["business"], status: "holded" },
-      { cat: "promo", title: "Создание сайта", desc: "Дизайн, адаптивная вёрстка, сбор заявок и базовая SEO-оптимизация.", forma: "ИП, ЮЛ", aud: ["business", "self"], status: "open" },
-      { cat: "promo", title: "Изготовление брендированной продукции", desc: "Производство печатной и сувенирной продукции, POS-материалов.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
-
-      { cat: "property", title: "Аренда помещений и коворкинга", desc: "Рабочие места и переговорные в центре «Мой бизнес» на льготных условиях.", forma: "ИП, ЮЛ", aud: ["business", "start"], status: "open" },
-      { cat: "property", title: "Льготная аренда оборудования", desc: "Доступ к оборудованию центра молодёжного инновационного творчества.", forma: "ИП, ЮЛ", aud: ["business"], status: "open" },
-
-      { cat: "export", title: "Поддержка экспорта", desc: "Сопровождение выхода продукции на зарубежные рынки и поиск партнёров.", forma: "ИП, ЮЛ", aud: ["export", "business"], status: "open" },
-      { cat: "export", title: "Поиск зарубежных партнёров", desc: "Аналитика рынков, подбор контрагентов и организация переговоров.", forma: "ИП, ЮЛ", aud: ["export"], status: "open" },
-      { cat: "export", title: "Участие в международных бизнес-миссиях", desc: "Делегации и выставки за рубежом. Перечень мероприятий на 2026 год.", forma: "ИП, ЮЛ", aud: ["export"], status: "closed" },
-    ];
+    const S = this.state.services.map(s => ({ ...s, deptName: DEPT[s.dept] || s.dept }));
 
     const STATUS = {
       open: { label: "Идёт приём заявок", color: "var(--success)", bg: "rgba(46,139,87,.12)" },
-      closed: { label: "Закрыли приём заявок", color: "var(--text-muted)", bg: "var(--tan-100)" },
-      holded: { label: "Приостановили приём", color: "#b5651d", bg: "rgba(207,158,112,.22)" },
+      closed: { label: "Архив / завершено", color: "var(--text-muted)", bg: "var(--tan-100)" },
+      holded: { label: "Приём временно приостановлен", color: "#b5651d", bg: "rgba(207,158,112,.22)" },
     };
 
     const aud = this.state.audience;
     const cats = this.state.cats;
-    const openModal = () => this.setState({ modalOpen: true, sent: false });
+    const openModal = (s) => this.setState({ modalOpen: true, sent: false, selectedService: s || null });
 
+    const ORDER = { open: 0, holded: 1, closed: 2 };
+    const audKey = aud === "veterans" ? "start" : aud;
     const visible = S.filter(s =>
-      (aud === "all" || s.aud.includes(aud)) &&
-      (cats.length === 0 || cats.includes(s.cat))
+      (aud === "all" || s.aud.includes(audKey)) &&
+      (cats.length === 0 || s.cats.some(c => cats.includes(c)))
     );
 
     const groups = CATS
       .map(c => ({
         ...c,
-        items: visible.filter(s => s.cat === c.key).map(s => {
-          const st = STATUS[s.status];
-          return { ...s, statusLabel: st.label, statusColor: st.color, statusBg: st.bg, onClick: (e) => { e.preventDefault(); openModal(); } };
-        }),
+        items: visible.filter(s => s.cats.includes(c.key))
+          .sort((a, b) => (ORDER[a.status] ?? 9) - (ORDER[b.status] ?? 9))
+          .map(s => {
+            const st = STATUS[s.status];
+            return { ...s, statusLabel: st.label, statusColor: st.color, statusBg: st.bg, openModal: () => openModal(s) };
+          }),
       }))
-      .filter(c => c.items.length > 0)
+      .filter(c => c.items.length > 0 && (cats.length === 0 || cats.includes(c.key)))
       .map(c => ({ ...c, countLabel: c.items.length + (c.items.length === 1 ? " услуга" : (c.items.length < 5 ? " услуги" : " услуг")) }));
 
     const audLabel = AUD.find(a => a.key === aud);
 
     return {
+      menuOpen: this.state.menuOpen,
+      navLinks: [
+        { label: "О Центре", href: "Лендинг Мой бизнес.dc.html#about" },
+        { label: "Услуги", href: "Услуги.dc.html" },
+        { label: "Мероприятия", href: "Лендинг Мой бизнес.dc.html#events" },
+        { label: "Новости", href: "Лендинг Мой бизнес.dc.html#news" },
+        { label: "Истории успеха", href: "Лендинг Мой бизнес.dc.html#stories" },
+        { label: "Контакты", href: "Лендинг Мой бизнес.dc.html#contacts" },
+      ],
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      openModalFromMenu: () => this.setState({ menuOpen: false, modalOpen: true, sent: false }),
       audienceRadios: AUD.map(a => ({
         label: a.label,
         onClick: () => this.setState({ audience: a.key }),
@@ -380,8 +430,9 @@ class Component extends DCLogic {
       modalForm: this.state.modalOpen && !this.state.sent,
       modalSent: this.state.modalOpen && this.state.sent,
       openModal,
-      closeModal: () => this.setState({ modalOpen: false, sent: false }),
+      closeModal: () => this.setState({ modalOpen: false, sent: false, selectedService: null }),
       submitModal: () => this.setState({ sent: true }),
+      selectedServiceTitle: this.state.selectedService ? this.state.selectedService.title : "",
       stop: (e) => e.stopPropagation(),
 
       socials: ["send", "play-circle", "rss", "users"],
