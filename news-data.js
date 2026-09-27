@@ -17,6 +17,7 @@
 window.MB_NEWS = [
   {
     id: "baltic-forum-2026-registration",
+    cover: "assets/news/baltic-forum-2026-registration.webp",
     title: "Открыта регистрация на VIII Международный Балтийский бизнес-форум",
     cat: "Форумы",
     dept: "ЦПП",
@@ -44,6 +45,7 @@ window.MB_NEWS = [
   },
   {
     id: "invest-80-85-projects",
+    cover: "assets/news/invest-80-85-projects.webp",
     title: "Наблюдательный совет отобрал 27 проектов для финансирования по программе «Инвест 80-85»",
     cat: "Финансы",
     dept: "ЦПП",
@@ -63,6 +65,7 @@ window.MB_NEWS = [
   },
   {
     id: "atr-engineering-staff",
+    cover: "assets/news/atr-engineering-staff.webp",
     title: "Образовательные программы АТР: как закрыть нехватку кадров в инжиниринге",
     cat: "Кадры",
     dept: "ИИЦ",
@@ -82,6 +85,7 @@ window.MB_NEWS = [
   },
   {
     id: "creative-code-russia",
+    cover: "assets/news/creative-code-russia.webp",
     title: "Запущена программа «Креативный код. Россия» для малого и среднего бизнеса",
     cat: "Программы",
     dept: "ЦПП",
@@ -100,6 +104,7 @@ window.MB_NEWS = [
   },
   {
     id: "belarus-business-mission",
+    cover: "assets/news/belarus-business-mission.webp",
     title: "Калининградские компании представят продукцию на бизнес-миссии в Беларуси",
     cat: "Экспорт",
     dept: "ЦПЭ",
@@ -136,6 +141,7 @@ window.MB_NEWS = [
   },
   {
     id: "cmit-new-equipment",
+    cover: "assets/news/cmit-new-equipment.webp",
     title: "ЦМИТ обновил парк оборудования: новые 3D-принтеры и VR-станции",
     cat: "Инновации",
     dept: "ИИЦ",
